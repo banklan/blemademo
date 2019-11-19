@@ -15,7 +15,8 @@ class CreateOrderFeesTable extends Migration
     {
         Schema::create('order_fees', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('amount');
+            $table->string('from');
+            $table->string('to');
             $table->string('fee');
             $table->timestamps();
         });

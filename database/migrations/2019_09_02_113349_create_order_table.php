@@ -19,7 +19,7 @@ class CreateOrderTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('product_id')->unsigned()->nullable();
             $table->bigInteger('service_id')->unsigned()->nullable();
-            $table->bigInteger('units')->unsigned();
+            $table->integer('units')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

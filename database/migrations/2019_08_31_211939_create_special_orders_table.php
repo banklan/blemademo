@@ -13,21 +13,24 @@ class CreateSpecialOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
+
         Schema::create('special_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('order_no');
             $table->bigInteger('user_id')->unsigned();
             $table->string('request');
+            $table->text('special_req')->nullable();
             $table->text('details');
             $table->string('units');
             $table->date('del_date');
             $table->time('del_time');
+            $table->string('order_status')->default(1)->nullable();
+            $table->boolean('payment_status')->nullable();
+            $table->string('cost')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -37,8 +40,6 @@ class CreateSpecialOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('special_orders');
-        Schema::enableForeignKeyConstraints();
     }
 }
