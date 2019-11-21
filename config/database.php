@@ -74,7 +74,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'db4free.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'blemafoods'),
+            'database' => env('DB_DATABASE', 'blemaclone'),
             'username' => env('DB_USERNAME', 'blemafoods'),
             'password' => env('DB_PASSWORD', 'blemafoods123'),
             'unix_socket' => env('DB_SOCKET', ''),
