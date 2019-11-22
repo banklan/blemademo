@@ -2,11 +2,6 @@
 
 use Illuminate\Support\Str;
 
-// $url = parse_url(getenv('DATABASE_URL'));
-// $host = $url['host']?? null;
-// $username = $url['user'] ?? null;
-// $password = $url['pass'] ?? null;
-// $database = substr($url['path'], 1) ?? null;
 
 return [
 
@@ -21,8 +16,7 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'mysql'),
-    // 'default' => env('DB_CONNECTION2', 'pgsql'),
+
     'default' => env('DB_CONNECTION_PROD', 'pgsql'),
     // 'default' => 'pgsql',
 
