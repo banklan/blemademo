@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Str;
 
+    $url = parse_url(getenv('DATABASE_URL'));
+    $host = $url['host']?? null;
+    $username = $url['user'] ?? null;
+    $password = $url['pass'] ?? null;
+    $database = substr($url['path'], 1) ?? null;
 
 return [
 
@@ -16,9 +21,10 @@ return [
     |
     */
 
-
-    'default' => env('DB_CONNECTION', 'pgsql'),
-    // 'default' => 'pgsql',
+    // 'default' => env('DB_CONNECTION', 'mysql'),
+    // 'default' => env('DB_CONNECTION2', 'pgsql'),
+    // 'default' => env('DB_CONNECTION2', 'pgsql'),
+    'default' => 'pgsql',
 
 
     /*
@@ -99,15 +105,16 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => parse_url(getenv('DATABASE_URL')),
-            'host' => parse_url(getenv("DATABASE_URL"))["host"] ?? null,
-            'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1) ?? null,
-            'username' => parse_url(getenv("DATABASE_URL"))["user"] ?? null,
-            'password' => parse_url(getenv("DATABASE_URL"))["pass"] ?? null,
+            'url' => $url,
+            'host' => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
