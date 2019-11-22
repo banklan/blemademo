@@ -23,8 +23,8 @@ return [
 
     // 'default' => env('DB_CONNECTION', 'mysql'),
     // 'default' => env('DB_CONNECTION2', 'pgsql'),
-    // 'default' => env('DB_CONNECTION2', 'pgsql'),
-    'default' => 'pgsql',
+    'default' => env('DB_CONNECTION_PROD', 'pgsql'),
+    // 'default' => 'pgsql',
 
 
     /*
