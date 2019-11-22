@@ -2,11 +2,26 @@
 
 use Illuminate\Support\Str;
 
-    $url = parse_url(getenv("DATABASE_URL"));
-    $host = $url['host']?? null;
-    $username = $url['user'] ?? null;
-    $password = $url['pass'] ?? null;
-    $database = substr($url['path'], 1) ?? null;
+    // $url = parse_url(getenv("DATABASE_URL"));
+    // $host = $url['host']?? null;
+    // $username = $url['user'] ?? null;
+    // $password = $url['pass'] ?? null;
+    // $database = substr($url['path'], 1) ?? null;
+
+    $host = env('DB_HOST', '127.0.0.1');
+    $database = env('DB_DATABASE', '');
+    $username = env('DB_USERNAME', 'forge');
+    $password = env('DB_PASSWORD', 'forge');
+
+    if($databaseUrl = getenv('DATABASE_URL')) {
+
+        $url = parse_url($databaseUrl);
+
+        $host = $url['host'];
+        $username = $url['user'];
+        $password = $url['pass'];
+        $database = substr($url['path'], 1);
+    }
 
 return [
 
@@ -115,6 +130,7 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
+            'port' => env('DB_PORT', '5432'),
         ],
 
         'sqlsrv' => [
