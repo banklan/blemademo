@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Str;
 
-$url = parse_url(getenv('DATABASE_URL'));
-$host = $url['host']?? null;
-$username = $url['user'] ?? null;
-$password = $url['pass'] ?? null;
-$database = substr($url['path'], 1) ?? null;
+// $url = parse_url(getenv('DATABASE_URL'));
+// $host = $url['host']?? null;
+// $username = $url['user'] ?? null;
+// $password = $url['pass'] ?? null;
+// $database = substr($url['path'], 1) ?? null;
 
 return [
 
@@ -107,8 +107,10 @@ return [
             'username' => parse_url(getenv("DATABASE_URL"))["user"] ?? null,
             'password' => parse_url(getenv("DATABASE_URL"))["pass"] ?? null,
             'charset'  => 'utf8',
-            'prefix'   => '',
-            'schema'   => 'public',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'schema' => 'public',
+            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
