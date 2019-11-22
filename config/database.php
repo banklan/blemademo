@@ -22,8 +22,9 @@ return [
     */
 
     // 'default' => env('DB_CONNECTION', 'mysql'),
-    'default' => env('DB_CONNECTION2', 'pgsql'),
     // 'default' => env('DB_CONNECTION2', 'pgsql'),
+    // 'default' => env('DB_CONNECTION2', 'pgsql'),
+    'default' => 'pgsql',
 
 
     /*
@@ -103,17 +104,16 @@ return [
         // ],
 
         'pgsql' => [
-            'driver'   => 'pgsql',
+            'driver' => 'pgsql',
             'url' => parse_url(getenv('DATABASE_URL')),
-            'host'     => parse_url(getenv("DATABASE_URL"))["host"] ?? null,
+            'host' => parse_url(getenv("DATABASE_URL"))["host"] ?? null,
             'database' => substr(parse_url(getenv("DATABASE_URL"))["path"], 1) ?? null,
             'username' => parse_url(getenv("DATABASE_URL"))["user"] ?? null,
             'password' => parse_url(getenv("DATABASE_URL"))["pass"] ?? null,
-            'charset'  => 'utf8',
+            'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
-            'sslmode' => 'prefer',
         ],
 
         'sqlsrv' => [
