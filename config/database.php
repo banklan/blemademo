@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
     $username = env('DB_USERNAME', 'forge');
     $password = env('DB_PASSWORD', 'forge');
 
-    if($databaseUrl = 'postgres://muaavhbnvnnuxm:1e004006e10cf6328034902446e1a89fd02dee4e0665ed648989891f8e5e7057@ec2-54-235-66-1.compute-1.amazonaws.com:5432/d3jjdg6jtu5gn0'){
+    if($databaseUrl = getenv('DATABASE_URL')) {
         $url = parse_url($databaseUrl);
 
         $host = $url['host'];
@@ -119,11 +119,11 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => $url,
-            'host' => $host,
-            'database' => $database,
-            'username' => $username,
-            'password' => $password,
+            'url' => getenv('DATABASE_URL'),
+            // 'host' => $host,
+            // 'database' => $database,
+            // 'username' => $username,
+            // 'password' => $password,
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
