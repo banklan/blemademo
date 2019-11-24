@@ -8,19 +8,19 @@ use Illuminate\Support\Str;
     // $password = $url['pass'] ?? null;
     // $database = substr($url['path'], 1) ?? null;
 
-    $host = env('DB_HOST', '127.0.0.1');
-    $database = env('DB_DATABASE', '');
-    $username = env('DB_USERNAME', 'forge');
-    $password = env('DB_PASSWORD', 'forge');
+    // $host = env('DB_HOST', '127.0.0.1');
+    // $database = env('DB_DATABASE', '');
+    // $username = env('DB_USERNAME', 'forge');
+    // $password = env('DB_PASSWORD', 'forge');
 
-    if($databaseUrl = getenv('DATABASE_URL')) {
-        $url = parse_url($databaseUrl);
+    // if($databaseUrl = getenv('DATABASE_URL')) {
+    //     $url = parse_url($databaseUrl);
 
-        $host = $url['host'];
-        $username = $url['user'];
-        $password = $url['pass'];
-        $database = ltrim($url['path'], '/');
-    }
+    //     $host = $url['host'];
+    //     $username = $url['user'];
+    //     $password = $url['pass'];
+    //     $database = ltrim($url['path'], '/');
+    // }
 
 return [
 
@@ -35,10 +35,10 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
     // 'default' => env('DB_CONNECTION2', 'pgsql'),
     // 'default' => env('DB_CONNECTION2', 'pgsql'),
-    'default' => 'pgsql',
+    // 'default' => 'pgsql',
 
 
     /*

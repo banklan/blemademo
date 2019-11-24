@@ -13,7 +13,6 @@ class CreateSpecialOrdersTable extends Migration
      */
     public function up()
     {
-
         Schema::create('special_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('order_no');
