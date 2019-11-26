@@ -24,7 +24,7 @@
                 @guest
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ url('/') }}">Welcome Page</a>
                     </li>
                 @else
 
