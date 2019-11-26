@@ -180,6 +180,7 @@ export default {
             })
         },
         cancelCreate(){
+            this.newLoc = ''
             this.$validator.reset()
             this.createDialog = false
         },

@@ -177,6 +177,7 @@ export default {
             })
         },
         cancelCreate(){
+            this.newcat = ''
             this.$validator.reset()
             this.createDialog = false
         },
