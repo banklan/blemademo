@@ -21,39 +21,6 @@ body{
     padding: 0;
 }
 
-// nav.navbar{
-//     a{
-//         color: #fff !important;
-//         transition: all .6s;
-//     }
-// }
-
-// nav.navbar .btn-outline-nav{
-//     color: $sec-col !important;
-//     border: 1px solid $sec-col-dark;
-//     transition: all .6s;
-
-//     &:hover{
-//         background: $sec-col;
-//         border: 1px solid $sec-col-light;
-//         color: #fff !important;
-//     }
-// }
-
-// #navbarSupportedContent > ul.navbar-nav > li.nav-item > a:hover{
-//     color: #f1f1f1 !important;
-// }
-
-// .navbar .navbar-nav .nav-item a.active{
-//     color: $sec-col !important;
-// }
-// #navbarSupportedContent > ul.navbar-nav.ml-auto > li.nav-item.dropdown.px-2.show > div{
-//     background-color: $pry-col-dark !important;
-// }
-
-// #navbarSupportedContent > ul.navbar-nav.ml-auto > li.nav-item.dropdown.px-2.show > div > a:hover{
-//     color: $sec-col !important;
-// }
 .navbar{
     padding: 0 !important;
 }
@@ -723,6 +690,37 @@ a.v-btn--fab{
                 font-weight: 300 !important;
                 color: #5a5a5a;
             }
+        }
+    }
+}
+
+.auth_card{
+    margin: 2rem auto;
+
+    .card-header{
+        background:$pry-col !important;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 300 !important
+    }
+
+    .btn-auth{
+        margin-top: -15px !important;
+        border:1px solid $pry-col-light;
+        color: #fff !important;
+        background-color: $pry-col !important;
+        border-radius: 6px;
+        font-weight: 300 !important;
+        width: 60%;
+        padding: 8px 12px;
+        font-size: 15px !important;
+        transition: all .4s;
+
+        &:hover{
+            background: transparent !important;
+            cursor: pointer;
+            color: $pry-col !important;
+            border: 1px solid $pry-col;
         }
     }
 }
