@@ -17,8 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="/css/app.css" rel="stylesheet"> -->
+    <!-- <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet"> -->
+    <link href="/css/app.css" rel="stylesheet">
     <!-- <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Nunito|Lato:100,300,400,700|Open+Sans:400,600|Raleway:300,400|Work+Sans:200|Dancing+Script|Fondamento|Lobster|Pacifico|Poiret+One|Righteous&display=swap|Material+Icons" rel="stylesheet">
 
