@@ -82,7 +82,9 @@
                                         {{ __('Register') }}
                                     </button>
                                 </div>
-                                Have an account? <a href="{{ route('login') }}" class="my-2 ml-2">Login</a>
+                                <div class="col-md-6 offset-md-4">
+                                    Have an account? <a href="{{ route('login') }}" class="my-2 ml-2">Login</a>
+                                </div>
                             </div>
                         </form>
                     </div>
