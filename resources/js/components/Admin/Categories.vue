@@ -190,7 +190,7 @@ export default {
             this.delDialog = true
         },
         deleteCat(){
-            console.log(this.catToDelete)
+            // console.log(this.catToDelete)
             // axios.post(`/admin_delete_cat/${this.catToDelete}`).then((res) => {
             //     this.categories.splice(this.catIndexToDel, 1)
             //     this.deleteSuccess = true;
@@ -200,10 +200,9 @@ export default {
         openEditCat(cat){
             this.editDialog = true
             this.editName = cat.name
-            this.catToEdit = cat
+            this.catToEdit p= cat
         },
         update(){
-            console.log(this.editName)
             this.$validator.validateAll('edit').then((isValid) =>{
                 if(isValid){
                     this.isSaving = true

@@ -35,10 +35,10 @@ return [
     |
     */
 
-    // 'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql'),
     // 'default' => env('DB_CONNECTION2', 'pgsql'),
     // 'default' => env('DB_CONNECTION2', 'pgsql'),
-    'default' => 'pgsql',
+    // 'default' => 'pgsql',
 
 
     /*
