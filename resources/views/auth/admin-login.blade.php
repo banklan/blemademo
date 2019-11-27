@@ -40,7 +40,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-0" style="margin-top:-10px">
+                            <div class="form-group row mb-0" style="margin-top:5px">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-auth">
                                         {{ __('Login') }}

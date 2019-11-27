@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
         <!-- Brand -->
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('images/brand/logo.jpg') }}" height="40" alt="logo">
-            <span>Blema</span>
+            <span>{{ config('app.name', 'BlemaDemo') }}</span>
         </a>
 
         <!-- Toggler/collapsibe Button -->

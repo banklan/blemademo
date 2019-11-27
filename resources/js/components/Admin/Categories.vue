@@ -165,7 +165,10 @@ export default {
                     }).then((res)=>{
                         this.isCreating = false
                         this.categories.unshift(res.data)
-                        this.cancelCreate()
+                        // this.cancelCreate()
+                        this.newcat = ''
+                        this.$validator.reset()
+                        this.createDialog = false
                         this.createdSuccess = true
                     }).catch((err) => {
                         this.isCreating = false
