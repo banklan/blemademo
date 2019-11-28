@@ -20,7 +20,7 @@
                     <div class="image_wrap">
                         <v-card light raised elevation="14" min-height="350" class="mx-auto">
                             <v-progress-circular v-if="!product" indeterminate color="#ff3c38" :width="5" :size="30" style="left: 50%; margin-top: 120px"></v-progress-circular>
-                            <v-img v-else contain max-height="350" :src="`/images/products/${product.category.img_path}/${product.picture}`" transition="scale-transition"></v-img>
+                            <v-img v-else contain max-height="350" :src="prodImg" transition="scale-transition"></v-img>
                         </v-card>
                         <div class="ml-5 my-3" v-if="!previewImage">
                             <input type="file" style="display: none" ref="file" @change="chooseFile">
@@ -209,13 +209,15 @@ export default {
             servDelete: false,
             servToDel: null,
             servIndexToDel: null,
-            servDelSuccess: false
+            servDelSuccess: false,
+            prodImg: null
         }
     },
     methods: {
         getProduct(){
             axios.get(`/admin_get_product/${this.$route.params.product}`).then((res) => {
-                this.product = res.data
+                this.product = res.data.prod
+                this.prodImg = res.data.img
             })
         },
         openFilePicker(){
