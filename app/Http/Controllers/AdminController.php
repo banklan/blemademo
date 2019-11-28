@@ -389,9 +389,9 @@ class AdminController extends Controller
                         $constraint->aspectRatio(); });
                                                 
             //detach method is the key! Hours to find it... :/
-            $resource = $fixedImg->stream()->detach();
+            $resource = $fixedImg->stream();
                        
-            Storage::disk('s3')->put($filepath, file_get_contents($fixedImg), $resource);
+            Storage::disk('s3')->put($filepath, file_get_contents($fixedImg), $resource->__toString());
         }
 
         $product = new Product;
