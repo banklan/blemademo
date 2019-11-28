@@ -127,7 +127,9 @@ export default {
             delDialog: false,
             deleteSuccess: false,
             catToEdit: null,
-            editSuccess: false
+            editSuccess: false,
+            catToDelete: null,
+            catIndexToDel: null
         }
     },
     methods:{
