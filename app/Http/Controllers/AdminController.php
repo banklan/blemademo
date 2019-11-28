@@ -24,6 +24,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use App\ContactMessage;
 use Carbon\CarbonPeriod;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -374,13 +375,16 @@ class AdminController extends Controller
             $filename = substr(str_shuffle($pool), 0, 8).".".$ext;
 
             //save new file in folder
-            $file_loc = public_path('/images/products/'.$path.'/'.$filename);
-            if(in_array($ext, ['jpeg', 'jpg', 'png', 'gif', 'pdf'])){
-                $upload = Image::make($file)->resize(225, 225, function($constraint){
-                    $constraint->aspectRatio();
-                });
-                $upload->sharpen(2)->save($file_loc);
-            }
+            // $file_loc = public_path('/images/products/'.$path.'/'.$filename);
+            // if(in_array($ext, ['jpeg', 'jpg', 'png', 'gif', 'pdf'])){
+            //     $upload = Image::make($file)->resize(225, 225, function($constraint){
+            //         $constraint->aspectRatio();
+            //     });
+            //     $upload->sharpen(2)->save($file_loc);
+            // }
+
+            // save in s3
+            Storage::disk('s3')->put($filename, $file, 'public');
         }
 
         $product = new Product;
