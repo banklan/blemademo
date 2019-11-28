@@ -180,11 +180,11 @@ export default {
         },
         getProducts(pag){
             pag = pag || '/admin_get_products'
-            console.log(pag);
+            // console.log(pag);
 
             axios.get(pag).then((res) => {
                 this.products = res.data.data
-                console.log(res.data)
+                // console.log(res.data)
                 this.pagination = {
                     current_page: res.data.current_page,
                     last_page: res.data.last_page,
@@ -224,10 +224,10 @@ export default {
                     form.append('size', vm.newProduct.size)
                     form.append('cat', vm.newProduct.cat)
                     form.append('file', vm.newProduct.file)
-                    console.log(form);
+                    // console.log(form);
 
                     axios.post('/admin_create_product', form, config).then((res)=>{
-                        console.log(res.data);
+                        // console.log(res.data);
                         this.products.unshift({
                             name: res.data.name,
                             price: res.data.price
