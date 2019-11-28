@@ -165,10 +165,10 @@ export default {
                     }).then((res)=>{
                         this.isCreating = false
                         this.categories.unshift(res.data)
-                        // this.cancelCreate()
-                        this.newcat = ''
-                        this.$validator.reset()
-                        this.createDialog = false
+                        this.cancelCreate()
+                        // this.newcat = ''
+                        // this.$validator.reset()
+                        // this.createDialog = false
                         this.createdSuccess = true
                     }).catch((err) => {
                         this.isCreating = false
@@ -180,9 +180,9 @@ export default {
             })
         },
         cancelCreate(){
-            this.newcat = ''
             this.$validator.reset()
             this.createDialog = false
+            this.newCat = ''
         },
         delCat(cat, index){
             this.catToDelete = cat
@@ -200,7 +200,7 @@ export default {
         openEditCat(cat){
             this.editDialog = true
             this.editName = cat.name
-            this.catToEdit p= cat
+            this.catToEdit = cat
         },
         update(){
             this.$validator.validateAll('edit').then((isValid) =>{
