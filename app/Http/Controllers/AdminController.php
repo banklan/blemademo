@@ -393,7 +393,7 @@ class AdminController extends Controller
         $product->unit = $request->unit;
         $product->price = intval($request->price * 100);
         $product->size = $request->size;
-        $product->colour = $request->color;
+        $product->color = $request->color;
         $product->category_id = $request->cat;
         $product->picture = $filename;
         $product->save();
