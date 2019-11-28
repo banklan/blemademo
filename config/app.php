@@ -164,7 +164,6 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
-        Aws\Laravel\AwsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -232,7 +231,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Paystack' => Unicodeveloper\Paystack\Facades\Paystack::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'AWS' => Aws\Laravel\AwsFacade::class,
 
     ],
 
