@@ -166,9 +166,6 @@ export default {
                         this.isCreating = false
                         this.categories.unshift(res.data)
                         this.cancelCreate()
-                        // this.newcat = ''
-                        // this.$validator.reset()
-                        // this.createDialog = false
                         this.createdSuccess = true
                     }).catch((err) => {
                         this.isCreating = false
@@ -180,9 +177,9 @@ export default {
             })
         },
         cancelCreate(){
+            this.newCat = ''
             this.$validator.reset()
             this.createDialog = false
-            this.newCat = ''
         },
         delCat(cat, index){
             this.catToDelete = cat
@@ -191,11 +188,11 @@ export default {
         },
         deleteCat(){
             // console.log(this.catToDelete)
-            // axios.post(`/admin_delete_cat/${this.catToDelete}`).then((res) => {
-            //     this.categories.splice(this.catIndexToDel, 1)
-            //     this.deleteSuccess = true;
-            //     this.delDialog = false
-            // })
+            axios.post(`/admin_delete_cat/${this.catToDelete}`).then((res) => {
+                this.categories.splice(this.catIndexToDel, 1)
+                this.deleteSuccess = true;
+                this.delDialog = false
+            })
         },
         openEditCat(cat){
             this.editDialog = true

@@ -589,10 +589,10 @@ class AdminController extends Controller
         $cat->img_path = str_slug($request->cat);
         $cat->save();
 
-        //create directory
-        if(!file_exists(public_path('/images/products/'.$cat->img_path))){
-            mkdir(public_path('/images/products/'.$cat->img_path, 0777, true));
-        }
+        //create directory--removed in production as all products are in same dir
+        // if(!file_exists(public_path('/images/products/'.$cat->img_path))){
+        //     mkdir(public_path('/images/products/'.$cat->img_path, 0777, true));
+        // }
 
         return response()->json($cat, 200);
     }
