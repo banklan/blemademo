@@ -385,7 +385,9 @@ class AdminController extends Controller
 
             // save in s3
             $filepath = '/products/' . $filename;
-            Storage::disk('s3')->put($filepath, file_get_contents($file), 'public');
+            $fixedImg = Image::make($file)->resize(225, 225, function($constraint){
+                        $constraint->aspectRatio(); });
+            Storage::disk('s3')->put($filepath, file_get_contents($fixedImg), 'public');
         }
 
         $product = new Product;
