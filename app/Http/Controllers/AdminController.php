@@ -384,7 +384,8 @@ class AdminController extends Controller
             // }
 
             // save in s3
-            Storage::disk('s3')->put('products/'.$filename, $file, 'public');
+            $filepath = 'products/'.$filename;
+            Storage::disk('s3')->put($filepath, $file, 'public');
         }
 
         $product = new Product;
