@@ -218,6 +218,7 @@ export default {
             axios.get(`/admin_get_product/${this.$route.params.product}`).then((res) => {
                 this.product = res.data.prod
                 this.prodImg = res.data.img
+                console.log(res.data)
             })
         },
         openFilePicker(){
