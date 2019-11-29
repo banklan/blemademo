@@ -456,8 +456,8 @@ class AdminController extends Controller
         $prod = Product::findOrFail($id);
         $imgUrl = Storage::disk('s3')->url($prod->picture);
 
-        // return response()->json(['prod' => $prod, 'img'=>$imgUrl], 200);
-        return response()->json($prod, 200);
+        return response()->json(['prod' => $prod, 'img'=>$imgUrl], 200);
+        // return response()->json($prod, 200);
     }
 
     public function updateImage(Request $request, $id)

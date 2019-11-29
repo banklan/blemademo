@@ -216,8 +216,8 @@ export default {
     methods: {
         getProduct(){
             axios.get(`/admin_get_product/${this.$route.params.product}`).then((res) => {
-                this.product = res.data
-                // this.prodImg = res.data.img
+                this.product = res.data.prod
+                this.prodImg = res.data.img
                 console.log(res.data)
             })
         },
