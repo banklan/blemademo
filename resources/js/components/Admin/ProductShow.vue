@@ -4,7 +4,7 @@
         <v-container>
             <v-row>
                 <v-col cols="10" offset="1">
-                    <div v-if="product" class="title ml-8">Product Management - <span class="subtitle-1"><strong>{{ product.name }}</strong></span></div>
+                    <div v-if="product" class="title ml-8">Product Management - updating now<span class="subtitle-1"><strong>{{ product.name }}</strong></span></div>
                 </v-col>
             </v-row>
             <v-divider></v-divider>
