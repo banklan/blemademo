@@ -246,6 +246,14 @@ export default {
         },
         cancelCreate(){
             this.$validator.reset()
+            this.newProduct.name = ''
+            this.newProduct.description = ''
+            this.newProduct.unit = ''
+            this.newProduct.price = null
+            this.newProduct.color = ''
+            this.newProduct.size = ''
+            this.newProduct.cat = null
+            this.newProduct.file = ''
             this.createDialog = false
         },
         filterTable(){
