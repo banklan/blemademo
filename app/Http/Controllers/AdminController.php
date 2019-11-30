@@ -439,12 +439,14 @@ class AdminController extends Controller
     {
         $prod = Product::findOrFail($id);
         $filename = $prod->picture;
-        $path = $prod->category->img_path;
+        // $path = $prod->category->img_path;
+        $filepath = '/products/' . $filename;
+        $path = Storage::disk('s3')->delete($filePath);
 
-        $filePath = public_path('/images/products/'.$path.'/'.$filename);
-        if(file_exists($filePath)){
-            unlink($filePath);
-        }
+        // $filePath = public_path('/images/products/'.$path.'/'.$filename);
+        // if(file_exists($filePath)){
+        //     unlink($filePath);
+        // }
 
         $prod->delete();
 
