@@ -253,7 +253,7 @@ export default {
             this.newProduct.color = ''
             this.newProduct.size = ''
             this.newProduct.cat = null
-            this.newProduct.file = null
+            this.newProduct.file = ''
             this.createDialog = false
         },
         filterTable(){

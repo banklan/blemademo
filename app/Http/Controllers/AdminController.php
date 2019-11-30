@@ -527,7 +527,7 @@ class AdminController extends Controller
             $prod->price = intval($request->product['price'] * 100),
             $prod->unit = $request->product['unit'],
             // $prod->category_id = $request->product['category_id'],
-            $prod->colour = $request->product['color'],
+            // $prod->colour = $request->product['color'],
             $prod->size = $request->product['size'],
         ]);
 
