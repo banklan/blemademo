@@ -474,12 +474,11 @@ class AdminController extends Controller
         ]);
 
         $oldImg = $prod->picture;
-        $path = $prod->category->img_path;
+        $filePath = '/products/' . $oldImg;
 
-        // unlink old image
-        $oldImgPath = public_path('/images/products/'.$path.'/'.$oldImg);
-        if(file_exists($oldImgPath)){
-            unlink($oldImgPath);
+        //delete old image
+        if($filePath){
+            Storage::disk('s3')->delete($filePath);
         }
 
         //store new image
@@ -490,13 +489,11 @@ class AdminController extends Controller
             $newImg = substr(str_shuffle($pool), 0, 8).".".$ext;
 
             //save new file in folder
-            $file_loc = public_path('/images/products/'.$path.'/'.$newImg);
-            if(in_array($ext, ['jpeg', 'jpg', 'png', 'gif', 'pdf'])){
-                $upload = Image::make($img)->resize(450, 500, function($constraint){
-                    $constraint->aspectRatio();
-                });
-                $upload->sharpen(2)->save($file_loc);
-            }
+            $fixedImg = Image::make($img)->resize(250, 250, function($constraint){
+                $constraint->aspectRatio();
+            })->sharpen(2);
+
+            $file_loc = Storage::disk('s3')->put($filePath, $fixedImg->__toString());
         }
 
         //update db with new image
