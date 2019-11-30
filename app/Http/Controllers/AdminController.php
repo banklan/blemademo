@@ -488,13 +488,15 @@ class AdminController extends Controller
             $ext = $img->getClientOriginalExtension();
             $newImg = substr(str_shuffle($pool), 0, 8).".".$ext;
 
+            $newFilePath = '/products/' . $newImg;
+
             $fixing = Image::make($img)->resize(250, 250, function($constraint){
                 $constraint->aspectRatio();
             })->sharpen(2);
 
             $fixedImg = $fixing->stream();
 
-            Storage::disk('s3')->put($filePath, $fixedImg->__toString());
+            Storage::disk('s3')->put($newFilePath, $fixedImg->__toString());
         }
 
         //update db with new image
