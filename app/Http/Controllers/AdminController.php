@@ -441,7 +441,9 @@ class AdminController extends Controller
         $filename = $prod->picture;
         // $path = $prod->category->img_path;
         $filepath = '/products/' . $filename;
-        $path = Storage::disk('s3')->delete($filePath);
+        if($filepath){
+            $path = Storage::disk('s3')->delete($filepath);
+        }
 
         // $filePath = public_path('/images/products/'.$path.'/'.$filename);
         // if(file_exists($filePath)){
