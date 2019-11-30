@@ -251,7 +251,6 @@ export default {
 
                 axios.post(`/admin_update_product_img/${this.$route.params.product}`, form, config).then((res)=>{
                     this.isUploading = false
-                    console.log(res.data)
                     this.product.picture = res.data.picture
                     this.cancelPreview()
                     this.uploadSuccess = true

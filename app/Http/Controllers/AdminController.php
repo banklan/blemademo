@@ -488,12 +488,13 @@ class AdminController extends Controller
             $ext = $img->getClientOriginalExtension();
             $newImg = substr(str_shuffle($pool), 0, 8).".".$ext;
 
-            //save new file in folder
-            $fixedImg = Image::make($img)->resize(250, 250, function($constraint){
+            $fixing = Image::make($img)->resize(250, 250, function($constraint){
                 $constraint->aspectRatio();
             })->sharpen(2);
 
-            $file_loc = Storage::disk('s3')->put($filePath, $fixedImg->__toString());
+            $fixedImg = $fixing->stream();
+
+            Storage::disk('s3')->put($filePath, $fixedImg->__toString());
         }
 
         //update db with new image
