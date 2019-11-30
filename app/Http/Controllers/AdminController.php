@@ -386,7 +386,7 @@ class AdminController extends Controller
             // save in s3
             $filepath = '/products/' . $filename;
             $img = Image::make($file)->resize(250, 250, function($constraint){
-                        $constraint->aspectRatio()->sharpen(2); });
+                        $constraint->aspectRatio(); })->sharpen(2);
                                                 
             //detach method is the key! Hours to find it... :/
             $fixedImg = $img->stream();
