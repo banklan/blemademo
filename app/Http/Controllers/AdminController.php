@@ -454,7 +454,8 @@ class AdminController extends Controller
     public function getProduct($id)
     {
         $prod = Product::findOrFail($id);
-        $imgUrl = Storage::disk('s3')->url($prod->picture);
+        $filePath = '/products/' . $prod->picture;
+        $imgUrl = Storage::disk('s3')->url($filePath);
 
         return response()->json(['prod' => $prod, 'img'=>$imgUrl], 200);
         // return response()->json($prod, 200);
