@@ -40,7 +40,7 @@
                                         <td>{{ user.name }}</td>
                                         <td>{{ user.email }}</td>
                                         <td>{{ user.phone }}</td>
-                                        <td>{{ user.status }}</td>
+                                        <td>{{ user.user_status }}</td>
                                         <td width="25%"><v-btn text small dark color="blue lighten-1" :to="{name: 'AdminUser', params: {user: user.id, slug:user.slug}}"><v-icon>visibility</v-icon></v-btn> &nbsp; <v-btn small dark color="#ff3c38" @click.prevent="confirmDelUser(user, index)"><v-icon>delete_forever</v-icon></v-btn></td>
                                     </tr>
                                 </tbody>

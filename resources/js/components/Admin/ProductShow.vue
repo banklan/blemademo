@@ -319,6 +319,7 @@ export default {
             })
         },
         cancelService(){
+            this.$validator.reset()
             this.createServiceDialog = false
             this.newService.name = ""
             this.newService.description = ""
