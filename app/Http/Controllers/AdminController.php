@@ -492,7 +492,7 @@ class AdminController extends Controller
 
             $fixing = Image::make($img)->resize(250, 250, function($constraint){
                 $constraint->aspectRatio();
-            })->sharpen(2);
+            })->sharpen(4);
 
             $fixedImg = $fixing->stream();
 
