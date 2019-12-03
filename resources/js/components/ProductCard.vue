@@ -79,6 +79,9 @@ export default {
             this.confirmAdd = true
         }
     },
+    mounted() {
+        this.getProductImg()
+    },
 }
 </script>
 

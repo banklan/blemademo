@@ -72,7 +72,10 @@ export default {
             this.$store.commit('addItemsToCart', this.picked)
             this.picked = {}
             this.confirmAdd = true
-        }
+        },
+        mounted() {
+            this.getProductImg()
+        },
     },
 }
 </script>
