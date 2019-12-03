@@ -4,7 +4,7 @@
         <v-flex xs12 v-if="product">
             <v-card raised elevation="10" light ripple hover height="380">
                 <router-link :to="{path: `/${product.category.slug}/${product.id}/${product.slug}`}">
-                    <v-img contain height="210" width="100%" class="pt-2" :src="`images/products/${product.category.img_path}/${product.picture}`" transition="scale-transition"></v-img>
+                    <v-img contain height="210" width="100%" class="pt-2" :src="prodImg" transition="scale-transition"></v-img>
                     <v-card-title><div class="body-2 primary--text px-2">{{ product.name }} - &#8358;{{ product.price | price }} per {{ product.unit }}</div></v-card-title>
                 </router-link>
                 <v-card-text class="details">
@@ -50,10 +50,16 @@ export default {
                 cost: null
             },
             loading: false,
-            confirmAdd: false
+            confirmAdd: false,
+            prodImg: ''
         }
     },
     methods: {
+        getProductImg(){
+           axios.get('/get_product_s3_image/' + this.product.id).then((res) => {
+               this.prodImg = res.data
+           })
+        },
         addToCart(product){
             this.loading = true
             this.picked.id = product.id
