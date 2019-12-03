@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -59,5 +60,16 @@ class ProductController extends Controller
         $prods = Product::where('category_id', $id)->get();
 
         return response()->json($prods, 200);
+    }
+
+    public function getProductS3Image($id)
+    {
+        $prod = Product::findOrFail($id);
+        $img = $prod->picture;
+
+        $filePath = '/products/' . $img;
+        $imgUrl = Storage::disk('s3')->url($filePath);
+
+        return response()->json($imgUrl, 200);
     }
 }

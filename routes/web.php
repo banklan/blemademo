@@ -115,6 +115,8 @@ Route::post('/send_message_contact', 'PagesController@sendMessage');
 Route::post('/send_enquiry_email', 'PagesController@sendEnquiryEmail');
 Route::get('/reset_unread_messages', 'MessageController@resetUnreadMsgs');
 
+Route::get('/get_product_s3_image/{product}', 'ProductController@getProductS3Image');
+
 //admin routes
 Route::prefix('admin')->group(function(){
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

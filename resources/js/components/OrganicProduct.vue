@@ -58,6 +58,11 @@ export default {
         }
     },
     methods: {
+        getProductImg(){
+           axios.get(`/get_product_s3_image/$(this.product.picture)`).then((res) => {
+               this.prodImg = res.data
+           })
+        },
         addToCart(product){
             this.loading = true
             this.added = true
@@ -78,6 +83,9 @@ export default {
             this.picked = {}
             this.confirmAdd = true
         }
+    },
+    mounted() {
+        this.getProductImg()
     },
 }
 </script>
