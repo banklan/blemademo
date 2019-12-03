@@ -61,7 +61,7 @@ export default {
     },
     methods: {
         getProductImg(){
-           axios.get(`/get_product_s3_image/$(this.product.picture)`).then((res) => {
+           axios.get('/get_product_s3_image/' + this.product.id).then((res) => {
                this.prodImg = res.data
            })
         },
