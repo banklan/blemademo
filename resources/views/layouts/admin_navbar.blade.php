@@ -18,16 +18,6 @@
                     <li class="nav-item {{ Route::currentRouteNamed('home') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('admin.home') }}">Admin Dashboard</a>
                     </li>
-                @endif
-
-                <!-- Authentication Links -->
-                @guest
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Welcome Page</a>
-                    </li>
-                @else
-
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown1" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::guard('admin')->user()->name }} <span class="caret"></span>
@@ -44,6 +34,14 @@
                                 @csrf
                             </form>
                         </div>
+                    </li>
+                @endif
+
+                <!-- Authentication Links -->
+                @guest
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Clients login </a>
                     </li>
                 @endguest
             </ul>
