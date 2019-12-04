@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -48,7 +49,7 @@ class LoginController extends Controller
 {
     $user = User::where('username',$request->username)->first();
     if( $user && !$user->active){
-        return redirect()->back()->with('error','the user has been desactivated');
+        return redirect()->back()->with('error','Login failed. Please contact the admin');
     }
 
     $this->validateLogin($request);
