@@ -17,7 +17,7 @@
                             <v-container grid-list-sm>
                                 <v-layout row wrap v-if="product" class="my-3">
                                     <v-flex xs12 sm6 text-xs-center >
-                                        <v-img contain max-height="320" :src="`/images/products/${product.category.img_path}/${product.picture}`" transition="scale-transition"></v-img>
+                                        <v-img contain max-height="320" :src="prodImg" transition="scale-transition"></v-img>
                                     </v-flex>
                                     <v-flex xs12 sm6>
                                     <v-card-title>
@@ -41,10 +41,6 @@
                                     </v-flex>
                                 </v-layout>
                                 <v-progress-circular indeterminate color="coral" :width="7" :size="70" v-if="!product"></v-progress-circular>
-                                <!-- <v-snackbar v-model="addSuccess" :timeout="4000" top color="#44a80f">
-                                    You have added an item to your cart
-                                    <v-btn color="white green--text" text  @click="addSuccess = false">Close</v-btn>
-                                </v-snackbar> -->
                             </v-container>
                         </v-card>
                     </v-flex>
@@ -73,7 +69,7 @@
                                     <v-container grid-list-sm>
                                         <v-layout row wrap>
                                             <v-flex xs3>
-                                                <v-img contain max-height="60" :src="`/images/products/${prod.category.img_path}/${prod.picture}`" transition="scale-transition"></v-img>
+                                                <v-img contain max-height="60" :src="prod.img" transition="scale-transition"></v-img>
                                             </v-flex>
                                             <v-flex xs9>
                                                 <div class="details">
@@ -145,7 +141,8 @@ export default {
             unitsPicked: null,
             added: false,
             pickedUnit: null,
-            confirmAdd: false
+            confirmAdd: false,
+            prodImg: ''
         }
     },
     watch: {
@@ -161,7 +158,8 @@ export default {
     methods: {
         getProduct(){
             axios.get(`/get_product/${this.$route.params.id}`).then((res) => {
-                this.product = res.data
+                this.product = res.data.product
+                this.prodImg = res.data.image
 
                 //get similar products
                 axios.get(`/get_similar_products/${res.data.category_id}/${this.$route.params.id}`).then((res) => {

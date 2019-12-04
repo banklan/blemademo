@@ -37,13 +37,25 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        return response()->json($product, 200);
+        $img = $product->picture;
+
+        $filePath = '/products/' . $img;
+
+        $imgUrl = Storage::disk('s3')->url($filePath);
+
+        return response()->json(['product' => $product, 'image' => $imgUrl], 200);
     }
 
     public function getSimilarProducts($cat, $id)
     {
         $prods = Product::where('category_id', $cat)->where('id', '!=', $id)->inRandomOrder()->limit(3)->get();
-
+        
+        foreach ($prods as $prod) {
+            $img = $prod->picture;
+            $filepath = '/products/' . $img;
+            $imgUrl = Storage::disk('s3')->url($filepath);
+            $prod->img = $imgUrl;
+        }
         return response()->json($prods, 200);
     }
 
