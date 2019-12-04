@@ -21,7 +21,7 @@
                                     </v-flex>
                                     <v-flex xs12 sm6>
                                     <v-card-title>
-                                        <div class="subtitle primary--text">{{ product.name }}  - &#8358;{{ product.price | price }}</div>
+                                        <div class="title primary--text">{{ product.name }}  - &#8358;{{ product.price | price }}</div>
                                     </v-card-title>
                                         <v-card-text>
                                             <div class="body-3 grey--text mb-3">{{ product.description }}</div>
@@ -61,25 +61,28 @@
                         </v-card>
                         <v-card raised elevation="12" light ripple hover min-height="380" width="100%">
                             <v-card-title class="justify-center">
-                                <div class="subtitle">Similar Products</div>
+                                <div class="title">Similar Products</div>
                             </v-card-title>
-                            <v-progress-circular indeterminate color="coral" :width="2" :size="30" v-if="similar.length == 0"></v-progress-circular>
+                            <v-divider></v-divider>
                             <div v-if="similar.length > 0" class="similar">
-                                <v-card v-for="prod in similar" :key="prod.id" class="mb-3" height="80" width="90%" :to="{path: `/${prod.category.slug}/${prod.id}/${prod.slug}`}" hover>
-                                    <v-container grid-list-sm>
-                                        <v-layout row wrap>
-                                            <v-flex xs3>
-                                                <v-img contain max-height="60" :src="prod.img" transition="scale-transition"></v-img>
-                                            </v-flex>
-                                            <v-flex xs9>
-                                                <div class="details">
-                                                    <div class="body-5 primary--text">{{ prod.name }} - &#8358;{{ product.price | price }}</div>
-                                                    <div class="body-2 grey--text">{{ prod.description }}</div>
-                                                </div>
-                                            </v-flex>
-                                        </v-layout>
-                                    </v-container>
-                                </v-card>
+                                <v-progress-circular indeterminate color="coral" :width="2" :size="30" v-if="similarLoading"></v-progress-circular>
+                                <template v-else>
+                                    <v-card v-for="prod in similar" :key="prod.id" class="mb-3" height="80" width="90%" :to="{path: `/${prod.category.slug}/${prod.id}/${prod.slug}`}" hover>
+                                        <v-container grid-list-sm>
+                                            <v-layout row wrap>
+                                                <v-flex xs3>
+                                                    <v-img contain max-height="60" :src="prod.img" transition="scale-transition"></v-img>
+                                                </v-flex>
+                                                <v-flex xs9>
+                                                    <div class="details">
+                                                        <div class="body-5 primary--text">{{ prod.name }} - &#8358;{{ product.price | price }}</div>
+                                                        <div class="body-2 grey--text">{{ prod.description }}</div>
+                                                    </div>
+                                                </v-flex>
+                                            </v-layout>
+                                        </v-container>
+                                    </v-card>
+                                </template>
                             </div>
                         </v-card>
                     </v-flex>
@@ -87,7 +90,7 @@
                 <v-row justify="center">
                     <v-dialog v-model="confirmAdd" max-width="350">
                         <v-card class="confirm_dialg">
-                            <v-card-title class="subtitle-1 justify-center">Item Added To Cart</v-card-title>
+                            <v-card-title class="title justify-center">Item Added To Cart</v-card-title>
 
                             <v-card-text>
                                 <div class="subtitle-2 black--text">What do you want to do?</div>
@@ -142,7 +145,8 @@ export default {
             added: false,
             pickedUnit: null,
             confirmAdd: false,
-            prodImg: ''
+            prodImg: '',
+            similarLoading: false
         }
     },
     watch: {
@@ -162,7 +166,9 @@ export default {
                 this.prodImg = res.data.image
 
                 //get similar products
+                this.similarLoading = true
                 axios.get(`/get_similar_products/${res.data.product.category_id}/${this.$route.params.id}`).then((res) => {
+                    this.similarLoading = false
                     this.similar = res.data
                 })
             })
