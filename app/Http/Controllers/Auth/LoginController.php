@@ -49,10 +49,16 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) {
-            
-            return redirect()->intended('home');
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
+            if(Auth::attempt(['status' => 1])){
+                return redirect()->intended('home');
+            }else{
+                $this->incrementLoginAttempts($request);
+                return response()->json([
+                    'error' => 'Login failed. Please contact the site admin.'
+                ], 401);
+            }
         } else {
             $this->incrementLoginAttempts($request);
             return $this->sendFailedLoginResponse($request);
