@@ -162,7 +162,7 @@ export default {
                 this.prodImg = res.data.image
 
                 //get similar products
-                axios.get(`/get_similar_products/${res.data.category_id}/${this.$route.params.id}`).then((res) => {
+                axios.get(`/get_similar_products/${res.data.product.category_id}/${this.$route.params.id}`).then((res) => {
                     this.similar = res.data
                 })
             })
