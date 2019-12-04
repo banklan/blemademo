@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -39,47 +40,51 @@ class LoginController extends Controller
         $this->middleware('guest')->except(['logout', 'userLogout']);
     }
 
-    public function login(Request $request)
-    {
-        $this->validateLogin($request);
-
-        if ($this->hasTooManyLoginAttempts($request)) {
-            $this->fireLockoutEvent($request);
-
-            return $this->sendLockoutResponse($request);
-        }
-
-        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status'=> true])) {
-            return redirect()->intended('home');
-            // if(Auth::attempt(['status' => 1])){
-            //     return redirect()->intended('home');
-            // }else{
-            //     $this->incrementLoginAttempts($request);
-            //     return response()->json([
-            //         'error' => 'Login failed. Please contact the site admin.'
-            //     ], 401);
-            // }
-        } else {
-            $this->incrementLoginAttempts($request);
-            return $this->sendFailedLoginResponse($request);
-        }
-    }
-
-    // public function authenticate(Request $request)
+    // public function login(Request $request)
     // {
-    //     $attempt = Auth::attempt([
-    //          'email' => $request->email,
-    //          'password' => $request->password,
-    //          'status' => true
-    //     ]);
+    //     $this->validateLogin($request);
 
-    //     if($attempt){
+    //     if ($this->hasTooManyLoginAttempts($request)) {
+    //         $this->fireLockoutEvent($request);
+
+    //         return $this->sendLockoutResponse($request);
+    //     }
+
+    //     if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status'=> true])) {
     //         return redirect()->intended('home');
-    //     }else {
+            
+    //     } else {
     //         $this->incrementLoginAttempts($request);
     //         return $this->sendFailedLoginResponse($request);
     //     }
     // }
+
+    public function credentials(Request $request)
+    {
+        $credentials = $request->only($this->username(), 'password');
+        $credentials['status'] = true;
+        return $credentials;
+    }
+
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $errors = [$this->username() => trans('auth.failed')];
+        // Load user from database
+        $user = User::where($this->username(), $request->{$this->username()})->first();
+        // Check if user was successfully loaded, that the password matches
+        // and active is not 1. If so, override the default error message.
+        if ($user && \Hash::check($request->password, $user->password) && $user->status != 1) {
+            $errors = [$this->username() => 'Your account is not active.'];
+        }
+
+        if ($request->expectsJson()) {
+            return response()->json($errors, 422);
+        }
+
+        return redirect()->back()
+            ->withInput($request->only($this->username(), 'remember'))
+            ->withErrors($errors);
+    }
 
 
     public function userLogout(Request $request)
