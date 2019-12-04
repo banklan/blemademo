@@ -39,12 +39,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except(['logout', 'userLogout']);
     }
 
-    public function authenticate(Request $request)
+    public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $this->validateLogin($request);
 
-        if (Auth::attempt(['email' => $email, 'password' => $password, 'status' => true])) {
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 1])) {
+            
             return redirect()->intended('home');
+
+        } else {
+            $this->incrementLoginAttempts($request);
+            return $this->sendFailedLoginResponse($request);
         }
     }
 
