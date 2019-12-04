@@ -6,7 +6,7 @@
                 <v-layout row wrap class="mb-4">
                     <v-flex xs12 sm6 class="mt-4">
                        <v-subheader color="primary">
-                           <div class="title">Category: Foodstuff</div>
+                           <div class="title">Category: Foodstuffs</div>
                        </v-subheader>
                     </v-flex>
                     <v-flex xs12 sm4 offset-sm1>
