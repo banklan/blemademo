@@ -84,13 +84,16 @@
                                     </v-card>
                                 </template>
                             </div>
+                            <div v-else>
+                                <div class="body-1">There are no similar products</div>
+                            </div>
                         </v-card>
                     </v-flex>
                 </v-layout>
                 <v-row justify="center">
                     <v-dialog v-model="confirmAdd" max-width="350">
                         <v-card class="confirm_dialg">
-                            <v-card-title class="title justify-center">Item Added To Cart</v-card-title>
+                            <v-card-title class="title justify-center font-weight-medium">Item Added To Cart</v-card-title>
 
                             <v-card-text>
                                 <div class="subtitle-2 black--text">What do you want to do?</div>
