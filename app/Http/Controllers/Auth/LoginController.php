@@ -39,47 +39,48 @@ class LoginController extends Controller
         $this->middleware('guest')->except(['logout', 'userLogout']);
     }
 
-    // public function login(Request $request)
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status'=> true])) {
+            return redirect()->intended('home');
+            // if(Auth::attempt(['status' => 1])){
+            //     return redirect()->intended('home');
+            // }else{
+            //     $this->incrementLoginAttempts($request);
+            //     return response()->json([
+            //         'error' => 'Login failed. Please contact the site admin.'
+            //     ], 401);
+            // }
+        } else {
+            $this->incrementLoginAttempts($request);
+            return $this->sendFailedLoginResponse($request);
+        }
+    }
+
+    // public function authenticate(Request $request)
     // {
-    //     $this->validateLogin($request);
+    //     $attempt = Auth::attempt([
+    //          'email' => $request->email,
+    //          'password' => $request->password,
+    //          'status' => true
+    //     ]);
 
-    //     if ($this->hasTooManyLoginAttempts($request)) {
-    //         $this->fireLockoutEvent($request);
-
-    //         return $this->sendLockoutResponse($request);
-    //     }
-
-    //     if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-
-    //         if(Auth::attempt(['status' => 1])){
-    //             return redirect()->intended('home');
-    //         }else{
-    //             $this->incrementLoginAttempts($request);
-    //             return response()->json([
-    //                 'error' => 'Login failed. Please contact the site admin.'
-    //             ], 401);
-    //         }
-    //     } else {
+    //     if($attempt){
+    //         return redirect()->intended('home');
+    //     }else {
     //         $this->incrementLoginAttempts($request);
     //         return $this->sendFailedLoginResponse($request);
     //     }
     // }
 
-    public function authenticate(Request $request)
-    {
-        $attempt = Auth::attempt([
-             'email' => $request->email,
-             'password' => $request->password,
-             'status' => true
-        ]);
-
-        if($attempt){
-            return redirect()->intended('home');
-        }else {
-            $this->incrementLoginAttempts($request);
-            return $this->sendFailedLoginResponse($request);
-        }
-    }
 
     public function userLogout(Request $request)
     {
