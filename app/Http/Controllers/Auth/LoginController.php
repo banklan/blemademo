@@ -70,7 +70,7 @@ class LoginController extends Controller
         $attempt = Auth::attempt([
              'email' => $request->email,
              'password' => $request->password,
-             'status' => 1
+             'status' => true
         ]);
 
         if($attempt){
