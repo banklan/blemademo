@@ -162,8 +162,7 @@ class AdminController extends Controller
         ]);
         
         $user = User::findOrFail($order->user_id);
-        $user_email = $order->user()->email;
-
+        
         //send mail
         if($newStatus == 7){
             Mail::to($user->email)->send(new OrderCompleted($user, $order));
@@ -172,7 +171,6 @@ class AdminController extends Controller
 
         return response()->json($order, 200);
     }
-
 
     public function getUser($id)
     {
