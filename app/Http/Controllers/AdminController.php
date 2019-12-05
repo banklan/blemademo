@@ -158,9 +158,7 @@ class AdminController extends Controller
         $order = OrderSummary::findOrFail($id);
         $order->update([
             $order->order_status = $newStatus,
-            if($newStatus == 7){
-                $order->pymt_status = true
-            }
+            $newStatus == 7 ? $order->pymt_status = true : $order->pymt_status = false
         ]);
         
         $user = User::findOrFail($order->user_id);
