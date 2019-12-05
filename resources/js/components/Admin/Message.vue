@@ -62,7 +62,12 @@ export default {
         getMessages(){
             axios.get('/admin_get_messages/' + this.userId).then((res) => {
                 this.messages = res.data
-                console.log(res.data);
+                res.data.forEach(msg => {
+                    if(msg.sender_id == 1000){
+                        msg.sender_name = 'Me'
+                    }
+                });
+                // console.log(res.data);
             })
         },
         sendMessage(){
@@ -79,15 +84,14 @@ export default {
                     message: this.text.trim(),
                     receiver: this.userId
                 }).then((res) => {
-                    console.log(res.data)
+                    // console.log(res.data)
                 })
                 this.text = ''
             }
         },
         changeMessageStatus(){
             axios.get('/admin_change_messages_status/' + this.userId).then((res)=>{
-                console.log(res.data);
-
+                // console.log(res.data);
             })
         }
     },

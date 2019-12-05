@@ -284,7 +284,7 @@ export default {
             axios.get(`/admin_get_summary/${this.$route.params.id}`).then((res) => {
                 // this.loading2 = false
                 this.summary = res.data
-                console.log(res.data);
+                // console.log(res.data);
                 this.user = res.data.user
                 this.getOrderHistory()
             })
@@ -314,7 +314,7 @@ export default {
             axios.post('/admin_order_actions/' + this.$route.params.id, {
                 status: this.summary.order_status
             }).then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.orderAction = false
                 this.summary.order_status = res.data.order_status
             })

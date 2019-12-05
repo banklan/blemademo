@@ -193,7 +193,7 @@ class AdminController extends Controller
         ]);
 
         $message = new Message;
-        $message->sender_id = 1;
+        $message->sender_id = 1000;
         $message->receiver_id = $request->receiver;
         $message->message = $request->message;
         $message->status = 0;
@@ -204,11 +204,8 @@ class AdminController extends Controller
 
     public function getAllMessages()
     {
-        // $messages = Message::selectRaw('sender_id', 'message')->where('sender_id', '!=', 1)->groupBy('sender_id')->get();
-        // $messages = Message::where('sender_id', '!=', 1)->groupBy('sender_id');
-        // $messages = Message::where('sender_id', '!=', 1)->distinct()->get(['sender_id']);
         $messages = Message::where('sender_id', '!=', 1)->distinct('status')->count('status');
-        // $messages = Message::where('sender_id', '!=', 1)->distinct()
+        
         return response()->json($messages, 200);
     }
 
