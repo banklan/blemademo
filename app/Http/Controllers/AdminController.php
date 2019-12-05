@@ -153,6 +153,15 @@ class AdminController extends Controller
         $order->update([
             $order->order_status = $newStatus
         ]);
+        
+        $user = User::findOrFail($order->user_id);
+        $user_email = $order->user()->email;
+
+        //send mail
+        if($newStatus == 7){
+            Mail::to($user->email)->send(new OrderCompleted($user, $order));
+            Mail::to('blemadeliveries@gmail.com')->send(new OrderCompleted($user, $order));
+        }
 
         return response()->json($order, 200);
     }

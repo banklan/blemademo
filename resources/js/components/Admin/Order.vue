@@ -61,7 +61,7 @@
                                     </tr>
                                     <tr>
                                         <th>Payment Status:</th>
-                                        <td>{{ summary.pymt_status }}</td>
+                                        <td>{{ summary.payment_status }}</td>
                                     </tr>
                                     <tr>
                                         <th>message:</th>
@@ -287,8 +287,7 @@ export default {
                     message: this.message.trim(),
                     user: this.user
                 }).then((res) => {
-                    console.log(res.data);
-
+                    // console.log(res.data);
                 })
             }
         }

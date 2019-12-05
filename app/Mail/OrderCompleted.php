@@ -4,13 +4,12 @@ namespace App\Mail;
 
 use App\User;
 use App\OrderSummary;
-use App\SpecialOrder;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class OrderReceived extends Mailable
+class OrderCompleted extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -36,6 +35,6 @@ class OrderReceived extends Mailable
     public function build()
     {
         return $this->from('Blessing@blemadeliveries.com')
-                    -> view('emails.order_received');
+                    -> view('emails.order_completed');
     }
 }
