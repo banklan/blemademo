@@ -15,6 +15,7 @@ use App\OrderFee;
 use Carbon\Carbon;
 use App\OrderSummary;
 use App\SpecialOrder;
+use App\Mail\OrderCompleted;
 use App\Mail\WelcomeToBlema;
 use Illuminate\Http\Request;
 use App\Mail\SpecialOrderCost;
@@ -156,7 +157,10 @@ class AdminController extends Controller
 
         $order = OrderSummary::findOrFail($id);
         $order->update([
-            $order->order_status = $newStatus
+            $order->order_status = $newStatus,
+            if($newStatus == 7){
+                $order->pymt_status = true
+            }
         ]);
         
         $user = User::findOrFail($order->user_id);
@@ -531,7 +535,6 @@ class AdminController extends Controller
             'product.price' => 'required|numeric|between:1,100000000000',
             'product.unit' => 'required',
             'product.size' => 'nullable|string',
-            // 'product.category_id' => 'required',
             'product.color' => 'nullable|string',
         ]);
 
@@ -540,8 +543,6 @@ class AdminController extends Controller
             $prod->description = $request->product['description'],
             $prod->price = intval($request->product['price'] * 100),
             $prod->unit = $request->product['unit'],
-            // $prod->category_id = $request->product['category_id'],
-            // $prod->colour = $request->product['color'],
             $prod->size = $request->product['size'],
         ]);
 
@@ -647,7 +648,6 @@ class AdminController extends Controller
 
         $categ->update([
             $categ->name = $req->cat,
-            // $categ->img_path = str_slug($req->cat)
         ]);
 
         return response()->json($categ, 200);
