@@ -155,7 +155,9 @@ class OrderController extends Controller
     {
         $order = OrderSummary::where('order_id', $id)->first();
 
-        return response()->json($order, 200);
+        if(Auth::id() == $order->user_id){
+            return response()->json($order, 200);
+        }
     }
 
     public function getUserOrdersByOrderId($order)
