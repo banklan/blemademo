@@ -253,7 +253,7 @@ export default {
                 window.localStorage.setItem('orderId', res.data)
                 window.location.href="/checkout_confirm"
             }).catch((err) => {
-                //show a msg that the transaction wasnt suuseeful and shound be redone
+                //show a msg that the transaction wasn't successful and should be redone
             })
         },
         emptyCart(){

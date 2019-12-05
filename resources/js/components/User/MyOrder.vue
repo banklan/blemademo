@@ -1,4 +1,4 @@
-<template>
+o<template>
     <v-app light>
         <v-layout row wrap>
             <v-flex xs2 sm1>

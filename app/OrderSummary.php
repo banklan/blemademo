@@ -71,11 +71,8 @@ class OrderSummary extends Model
 
     public function getPaymentStatusAttribute($value)
     {
-        if($this->pymt_status === 0){
+        if($this->pymt_status == 0){
             return 'Payment Not Made Yet';
-        }
-        elseif($this->pymt_status === 1){
-            return 'Payment Not Fully Settled';
         }else{
             return 'Paid';
         }
