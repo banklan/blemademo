@@ -75,7 +75,7 @@
                                                 </v-flex>
                                                 <v-flex xs9>
                                                     <div class="details">
-                                                        <div class="body-5 primary--text">{{ prod.name }} - &#8358;{{ product.price | price }}</div>
+                                                        <div class="body-5 primary--text">{{ prod.name }} - &#8358;{{ prod.price | price }}</div>
                                                         <div class="body-2 grey--text">{{ prod.description }}</div>
                                                     </div>
                                                 </v-flex>

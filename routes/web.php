@@ -159,6 +159,7 @@ Route::get('/get_services_count', 'AdminController@getServicesCount');
 Route::get('/get_categories_count', 'AdminController@getCategoriesCount');
 Route::get('/admin_get_all_ordersummary', 'AdminController@getOrderSummaries');
 Route::get('/admin_get_order/{order}', 'AdminController@getOrder');
+Route::get('/admin_get_order_services/{order}', 'AdminController@getOrderServices');
 Route::get('/admin_get_summary/{id}', 'AdminController@getOrderSummary');
 Route::post('/admin_delete_order', 'AdminController@delOrder');
 Route::get('/admin_get_users_order_history/{id}', 'AdminController@getUserHistory');

@@ -20,7 +20,7 @@
                             <v-progress-circular v-if="!summary" indeterminate color="orange" :width="5" :size="50" class="justify-center align-center"></v-progress-circular>
                             <v-card v-if="summary" light elevation="12" raised min-height="500" class="pa-3">
                                 <v-card-title class="justify-center">
-                                    <div class="subtitle-1">Order Summary </div>
+                                    <div class="subtitle-1  font-weight-medium">Order Summary </div>
                                 </v-card-title>
                                 <table class="table">
                                     <tr>
@@ -78,7 +78,7 @@
                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="5" :size="50" class="justify-center align-center"></v-progress-circular>
                             <v-card v-else light elevation="12" raised min-height="500" class="pa-3">
                                 <v-card-title class="justify-center">
-                                    <div class="subtitle-1">
+                                    <div class="subtitle-1 font-weight-medium">
                                         Order Items
                                     </div>
                                 </v-card-title>
@@ -106,13 +106,38 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div class="mt-5" v-if="orderServices.length > 0">
+                                    <div class="subtitle-1 text-center py-3">Services</div>
+                                    <table class="table table-responsive table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Serv ID</th>
+                                                <th>Service</th>
+                                                <th>Units</th>
+                                                <th>Unit Price(&#8358;)</th>
+                                                <th>Total Price(&#8358;)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for="(item, index) in orderServices" :key="index">
+                                                <td width="10%">{{ index + 1 }}</td>
+                                                <td width="10%">{{ item.service_id }}</td>
+                                                <td>{{ item.service && item.service.name }}</td>
+                                                <td>{{ item.units }}</td>
+                                                <td>{{ item.service && item.service.price | price }}</td>
+                                                <td>{{ item.cost | price }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </v-card>
                         </v-col>
                         <v-col cols="12" sm="6">
                             <v-progress-circular v-if="!summary" indeterminate color="orange" :width="5" :size="50" class="justify-center align-center"></v-progress-circular>
                             <v-card v-else light elevation="12" raised min-height="500" class="pa-3">
                                 <v-card-title class="justify-center">
-                                    <div class="subtitle-1">Customers Information</div>
+                                    <div class="subtitle-1 font-weight-medium">Customers Information</div>
                                 </v-card-title>
                                 <table class="table table-responsive table-striped table-hovered">
                                     <tr>
@@ -142,7 +167,7 @@
                             <v-progress-circular v-if="!summary" indeterminate color="orange" :width="5" :size="50" class="justify-center align-center"></v-progress-circular>
                             <v-card v-else light elevation="12" raised min-height="500" class="pa-3">
                                 <v-card-title class="justify-center">
-                                    <div class="subtitle-1">Customer order History</div>
+                                    <div class="subtitle-1 font-weight-medium">Customer order History</div>
                                 </v-card-title>
                                 <div class="history">
                                 <table class="table table-responsive table-hover" width="100%">
@@ -211,7 +236,8 @@ export default {
             OrderHistory: [],
             orderAction: false,
             message: '',
-
+            ServiceLoading: false,
+            orderServices: []
         }
     },
     computed: {
@@ -238,6 +264,18 @@ export default {
 
                 this.orders.forEach(item => {
                     item.cost = item.units * item.product.price
+                });
+            })
+        },
+        getServices(){
+            this.ServiceLoading = true
+            axios.get(`/admin_get_order_services/${this.order}`).then((res) => {
+                this.ServiceLoading = false
+                this.orderServices = res.data
+
+                // console.log(res.data)
+                this.orderServices.forEach(item => {
+                    item.cost = item.units * item.service.price
                 });
             })
         },
@@ -294,6 +332,7 @@ export default {
     },
     mounted() {
         this.getOrder()
+        this.getServices()
         this.getSummary()
     },
 }

@@ -2,26 +2,6 @@
 
 use Illuminate\Support\Str;
 
-    // $url = parse_url(getenv("DATABASE_URL"));
-    // $host = $url['host']?? null;
-    // $username = $url['user'] ?? null;
-    // $password = $url['pass'] ?? null;
-    // $database = substr($url['path'], 1) ?? null;
-
-    // $host = env('DB_HOST', '127.0.0.1');
-    // $database = env('DB_DATABASE', '');
-    // $username = env('DB_USERNAME', 'forge');
-    // $password = env('DB_PASSWORD', 'forge');
-
-    // if($databaseUrl = getenv('DATABASE_URL')) {
-    //     $url = parse_url($databaseUrl);
-
-    //     $host = $url['host'];
-    //     $username = $url['user'];
-    //     $password = $url['pass'];
-    //     $database = ltrim($url['path'], '/');
-    // }
-
 return [
 
     /*
@@ -84,21 +64,6 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
-        // 'mysql_db4free' => [
-        //     'driver' => 'mysql',
-        //     'host' => 'db4free.net',
-        //     'port' => '3306',
-        //     'database' => 'blemafoods',
-        //     'username' => 'blemafoods',
-        //     'password' => 'blemafoods123',
-        //     'unix_socket' => '',
-        //     'charset' => 'utf8mb4',
-        //     'collation' => 'utf8mb4_unicode_ci',
-        //     'prefix' => '',
-        //     'strict' => true,
-        //     'engine' => null
-        // ],
 
         // 'pgsql' => [
         //     'driver' => 'pgsql',
