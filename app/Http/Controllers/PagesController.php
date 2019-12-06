@@ -41,7 +41,7 @@ class PagesController extends Controller
 
     public function sendEnquiryEmail(Request $req){
         $msg = ContactMessage::findOrFail($req->msg);
-        $adminEmail = 'blemadeliveries@gmail.com'
+        $adminEmail = 'blemadeliveries@gmail.com';
         Mail::to($adminEmail)->send(new ContactEmail($msg));
 
         return response()->json($msg, 200);
