@@ -35,6 +35,7 @@ class PagesController extends Controller
         $msg->save();
 
         //send email
+        // Mail::to('blemadeliveries@gmail.com')->send(new EnquiryMail($msg));
         Mail::to('blemadeliveries@gmail.com')->send(new EnquiryMail($msg));
 
         return response()->json($msg, 200);
