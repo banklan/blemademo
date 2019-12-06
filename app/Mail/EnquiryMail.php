@@ -21,7 +21,7 @@ class EnquiryMail extends Mailable
      */
     public function __construct(ContactMessage $msg)
     {
-        $this->msg = $msg
+        $this->msg = $msg;
     }
 
     /**
