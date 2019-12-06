@@ -34,17 +34,13 @@ class PagesController extends Controller
         $msg->message = $request->message['message'];
         $msg->save();
 
-        //send email
-        // Mail::to('blemadeliveries@gmail.com')->send(new EnquiryMail($msg));
-        // Mail::to('blemadeliveries@gmail.com')->send(new EnquiryMail($msg));
-
         return response()->json($msg, 200);
     }
 
     public function sendEnquiryEmail(Request $req){
         $msg = ContactMessage::findOrFail($req->msg);
         $adminEmail = 'blemadeliveries@gmail.com';
-        Mail::to($adminEmail)->send(new ContactEmail($msg));
+        Mail::to($adminEmail)->send(new EnquiryMail($msg));
 
         return response()->json($msg, 200);
     }

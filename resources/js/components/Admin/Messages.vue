@@ -83,7 +83,10 @@ export default {
     methods: {
         getUsers(){
             axios.get('/admin_get_users').then((res) => {
-                this.users = res.data
+                let users = res.data.filter(user => {
+                    user.id != 99
+                })
+                this.users = users
             })
         },
         getMessages(){

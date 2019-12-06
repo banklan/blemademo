@@ -392,15 +392,6 @@ class AdminController extends Controller
             $ext = $file->getClientOriginalExtension();
             $filename = substr(str_shuffle($pool), 0, 8).".".$ext;
 
-            //save new file in folder
-            // $file_loc = public_path('/images/products/'.$path.'/'.$filename);
-            // if(in_array($ext, ['jpeg', 'jpg', 'png', 'gif', 'pdf'])){
-            //     $upload = Image::make($file)->resize(225, 225, function($constraint){
-            //         $constraint->aspectRatio();
-            //     });
-            //     $upload->sharpen(2)->save($file_loc);
-            // }
-
             // save in s3
             $filepath = '/products/' . $filename;
             $img = Image::make($file)->resize(250, 250, function($constraint){
@@ -463,11 +454,6 @@ class AdminController extends Controller
             $path = Storage::disk('s3')->delete($filepath);
         }
 
-        // $filePath = public_path('/images/products/'.$path.'/'.$filename);
-        // if(file_exists($filePath)){
-        //     unlink($filePath);
-        // }
-
         $prod->delete();
 
         return response()->json(['Message' => 'Deleted'], 200);
@@ -480,7 +466,6 @@ class AdminController extends Controller
         $imgUrl = Storage::disk('s3')->url($filePath);
 
         return response()->json(['prod' => $prod, 'img'=>$imgUrl], 200);
-        // return response()->json($prod, 200);
     }
 
     public function updateImage(Request $request, $id)
