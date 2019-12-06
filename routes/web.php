@@ -165,7 +165,6 @@ Route::post('/admin_delete_order', 'AdminController@delOrder');
 Route::get('/admin_get_users_order_history/{id}', 'AdminController@getUserHistory');
 Route::get('/admin_del_order_summary/{id}', 'AdminController@delOrderSummary');
 Route::post('/admin_order_actions/{id}', 'AdminController@changeOrderStatus');
-// Route::post('/admin_send_message', 'AdminController@sendMessage');
 Route::get('/admin_get_user/{id}', 'AdminController@getUser');
 Route::get('/admin_get_messages/{id}', 'AdminController@getMessages');
 Route::post('/admin_post_messages', 'AdminController@postMessages');

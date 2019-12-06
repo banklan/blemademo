@@ -33,18 +33,15 @@ class PagesController extends Controller
         $msg->message = $request->message['message'];
         $msg->save();
 
-        // return $this->sendEnquiryEmail($msg); the function will be private
-        // if(!$this->sendEnquiryEmail($msg)){
-        //     $this->sendEnquiryEmail($msg);
-        // }
+        //send email
+        // Mail::to('blemadeliveries@gmail.com')->send(new EnquiryMail($msg));
 
         return response()->json($msg, 200);
     }
 
     public function sendEnquiryEmail(Request $req){
-        // $msg = $req->msg;
         $msg = ContactMessage::findOrFail($req->msg);
-        $adminEmail = 'banklan2000@gmail.com';
+        $adminEmail = 'blemadeliveries@gmail.com';
         Mail::to($adminEmail)->send(new ContactEmail($msg));
 
         return response()->json($msg, 200);

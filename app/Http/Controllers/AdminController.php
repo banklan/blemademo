@@ -160,6 +160,13 @@ class AdminController extends Controller
             $order->order_status = $newStatus,
             $newStatus == 7 ? $order->pymt_status = true : $order->pymt_status = false
         ]);
+
+        if($order->order_status == 7){
+            $charges = Charges::where('order_id', $order->order_id)->first();
+            $charges->update([
+                $charges->status = 1
+            ]);
+        }
         
         $user = User::findOrFail($order->user_id);
         
