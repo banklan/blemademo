@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\ContactMessage;
 
 class EnquiryMail extends Mailable
 {
@@ -18,9 +19,9 @@ class EnquiryMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ContactMessage $msg)
     {
-        //
+        $this->msg = $msg
     }
 
     /**
@@ -30,6 +31,7 @@ class EnquiryMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('Blessing@blemadeliveries.com')
+                    -> view('emails.contact_message');
     }
 }
