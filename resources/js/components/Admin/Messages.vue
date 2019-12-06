@@ -84,7 +84,7 @@ export default {
         getUsers(){
             axios.get('/admin_get_users').then((res) => {
                 let users = res.data.filter(user => {
-                    user.id != 99
+                    user.id == 99
                 })
                 this.users = users
             })
