@@ -66,7 +66,7 @@ export default {
                         this.successMsg = "Thanks for contacting us. Your message has been sent. We will reply you shortly."
                         this.resetFormValidation()
                         //send email
-                        // this.sendEmail(res.data.id)
+                        this.sendEmail(res.data.id)
                     }).catch((err) => {
                         this.isSending = false
                         this.sentError = 'Message sending failed. Please try again later.'
