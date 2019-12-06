@@ -6,6 +6,7 @@ use App\ContactMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactEmail;
+use App\Mail\EnquiryMail;
 
 class PagesController extends Controller
 {
