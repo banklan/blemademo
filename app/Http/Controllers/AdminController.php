@@ -419,7 +419,7 @@ class AdminController extends Controller
 
     public function getCats()
     {
-        $cats = Category::orderBy('name', 'ASC')->get();
+        $cats = Category::orderBy('id', 'ASC')->get();
 
         return response()->json($cats, 200);
     }

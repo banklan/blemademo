@@ -30,9 +30,6 @@
                         </div>
                     </v-flex>
                 </v-layout>
-                <v-layout>
-
-                </v-layout>
             </v-container>
         </v-content>
     </v-app>
@@ -42,7 +39,7 @@
 export default {
     data() {
         return {
-            id: 15,
+            id: 19,
             products: []
         }
     },
