@@ -52,7 +52,6 @@ export default {
     data(){
         return{
             loading: false,
-            // orders: []
         }
     },
     computed: {
@@ -61,11 +60,7 @@ export default {
             return this.$store.getters.getOrders
         }
     },
-    methods:{
-
-    },
     mounted() {
-        // this.getOrders()
         this.$store.dispatch('getOrders')
     },
 }

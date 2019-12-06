@@ -19,9 +19,6 @@ import { store } from './store';
 import './filters';
 Vue.use(require('vue-moment'));
 import VueChatScroll from 'vue-chat-scroll';
-// import Vuetify from 'vuetify';
-// import 'vuetify/dist/vuetify.min.css'
-
 
 Vue.use(VueRouter);
 Vue.use(VeeValidate);
@@ -41,14 +38,9 @@ const router = new VueRouter({
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
-// Vue.component('foodstuff-cat', require('./components/Foodstuffs.vue').default);
 Vue.component('product-organic', require('./components/OrganicProduct.vue').default);
 Vue.component('mini-cart', require('./components/CartMini.vue').default);
 Vue.component('my-cart', require('./components/MyCart.vue').default);
-// Vue.component('organic-products', require('./components/OrganicProducts.vue').default);
 Vue.component('product-card', require('./components/ProductCard.vue').default);
 Vue.component('product-search', require('./components/ProductSearch.vue').default);
 Vue.component('soup-card', require('./components/SoupCard.vue').default);

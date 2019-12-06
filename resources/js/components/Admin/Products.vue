@@ -224,10 +224,8 @@ export default {
                     form.append('size', vm.newProduct.size)
                     form.append('cat', vm.newProduct.cat)
                     form.append('file', vm.newProduct.file)
-                    // console.log(form);
 
                     axios.post('/admin_create_product', form, config).then((res)=>{
-                        // console.log(res.data);
                         this.products.unshift({
                             name: res.data.name,
                             price: res.data.price

@@ -119,7 +119,6 @@ class OrderController extends Controller
     {
         $order = OrderSummary::findOrFail($id);
         $user = Auth::user();
-        // print_r($order);
         Mail::to($user->email)->send(new OrderReceived($user, $order));
         Mail::to('blemadeliveries@gmail.com')->send(new OrderReceived($user, $order));
     }

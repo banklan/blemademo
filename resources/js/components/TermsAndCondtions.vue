@@ -16,7 +16,7 @@
                                 <li>Your order invoices shall be sent to your email</li>
                                 <li>Your payments validate your orders. Orders will only be delivered after payment is confirmed.</li>
                                 <li>Standard flat rate is for packages less than 10kg. Extra delivery fees will be charged on packages above 10kg.</li>
-                                <li>Please send proof of payments to <span class="email">blemagroceries@gmail.com</span> or our whatsapp number 080...</li>
+                                <li>Please send proof of payments to <span class="email">blemadeliveries@gmail.com</span> or our whatsapp number 080...</li>
                             </ol>
                         </v-card-text>
                     </v-card>

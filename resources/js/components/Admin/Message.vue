@@ -67,7 +67,6 @@ export default {
                         msg.sender_name = 'Me'
                     }
                 });
-                // console.log(res.data);
             })
         },
         sendMessage(){

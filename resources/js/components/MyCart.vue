@@ -281,7 +281,6 @@ export default {
                 }).then((res) => {
                     this.orderCompleted = true
                     this.openPodDialog = false
-                    // this.loading2 = false
                     localStorage.removeItem('items')
                     localStorage.removeItem('items_cost')
                     localStorage.removeItem('charges')

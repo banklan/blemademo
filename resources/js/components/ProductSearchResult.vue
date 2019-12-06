@@ -59,12 +59,6 @@ export default {
     },
     mounted() {
         this.search()
-        // if(this.$route.params.result !== null){
-        //     this.loading = false
-        //     this.products = this.$route.params.result
-        // }else{
-        //     this.products = JSON.parse(localStorage.getItem('ProductSearchResult'))
-        // }
     },
 }
 </script>

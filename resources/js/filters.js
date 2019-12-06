@@ -6,13 +6,6 @@ Vue.filter('price', (value)=>{
     return amount;
 });
 
-//works too
-// Vue.filter('price', (value) =>{
-//     let amt = parseFloat(value/100);
-//     let amount = (amt).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-//     return amount;
-// })
-
 Vue.filter('truncate', (string, value)=>{
     if(string.length > value){
         return string.substring(0, value) + " ...";

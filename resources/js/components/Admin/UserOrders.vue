@@ -74,7 +74,6 @@ export default {
     },
     mounted() {
         this.getUser()
-
         this.getOrders()
     },
 }

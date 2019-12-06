@@ -39,15 +39,14 @@ export default {
         }
     },
     methods: {
-        getRecipes(){
+        getProds(){
             axios.get(`/get_products_categories/${this.id}`).then((res) => {
                 this.products = res.data
-                console.log(res.data)
             })
         }
     },
     mounted() {
-        this.getRecipes()
+        this.getProds()
     },
 }
 </script>

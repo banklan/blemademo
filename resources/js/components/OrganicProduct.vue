@@ -4,7 +4,6 @@
         <v-flex xs12 v-if="product">
             <v-card raised elevation="10" light ripple hover height="380">
                <router-link :to="{path: `/${product.category.slug}/${product.id}/${product.slug}`}">
-                    <!-- <v-img contain max-height="210" class="pt-2" :src="`images/products/organic/${product.picture}`" transition="scale-transition"></v-img> -->
                     <v-img contain max-height="210" class="pt-2" :src="prodImg" transition="scale-transition"></v-img>
                     <v-card-title><div class="body-2 primary--text px-2">{{ product.name }} - &#8358;{{ product.price | price }} per {{ product.unit }}</div></v-card-title>
                 </router-link>

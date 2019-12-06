@@ -44,15 +44,14 @@ export default {
         }
     },
     methods: {
-        getRecipes(){
+        getProds(){
             axios.get(`/get_products_categories/${this.id}`).then((res) => {
                 this.products = res.data
-                console.log(res.data)
             })
         }
     },
     mounted() {
-        this.getRecipes()
+        this.getProds()
     },
 }
 </script>
@@ -62,7 +61,6 @@ export default {
         font-size: 18px !important;
         font-weight: 300 !important;
         display: inline-block;
-        // margin-right: 6rem !important;
         margin-top: 2rem;
         margin-bottom: 4rem;
 

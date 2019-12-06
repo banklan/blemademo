@@ -17,12 +17,6 @@ class CheckoutController extends Controller
 
     public function checkout()
     {
-        // $amount = $request->amount;
-        // $msg = $request->message;
-        // $user = Auth::user();
-        // $email = $user->email;
-        // $userid = Auth::id();
-
         $year= Carbon::now()->format('y');
         $month = Carbon::now()->format('m');
         $day = Carbon::now()->format('j');
@@ -32,7 +26,6 @@ class CheckoutController extends Controller
         $amount = intval(Session::get('grandTotal'));
         $user = Auth::user()->name;
         $email = Auth::user()->email;
-        // var_dump(openssl_get_cert_locations());
         return view('pages.checkout')->withAmount($amount)->withOrder($order)->withUser($user)->withEmail($email);
     }
 
@@ -47,8 +40,6 @@ class CheckoutController extends Controller
         Session::put([
             'grandTotal' => $amount,
         ]);
-
-        // return view('pages.checkout');
 
         return response()->json(['message' => 'sent']);
     }

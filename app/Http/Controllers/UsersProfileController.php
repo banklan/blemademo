@@ -47,12 +47,9 @@ class UsersProfileController extends Controller
     public function update(Request $request)
     {
         $user = Auth::user();
-
-        // print_r($request->update);
         $this->validate($request, [
             'update.name' => 'required|max:60',
             'update.phone' => 'required|numeric',
-            // 'update.alt_phone' => 'numeric',
             'update.address' => 'required|max:100',
         ]);
 

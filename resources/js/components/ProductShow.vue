@@ -211,8 +211,6 @@ export default {
     },
     mounted() {
         this.getProduct();
-
-        // this.getSimilar()
     },
 }
 </script>

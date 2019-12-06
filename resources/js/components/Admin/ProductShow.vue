@@ -36,7 +36,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- {{ product }} -->
                 </v-col>
                 <v-col cols="10" offset="1" md="5" offset-md="0">
                     <div class="image_wrap">

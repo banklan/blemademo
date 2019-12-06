@@ -68,7 +68,6 @@ export default {
         getMessages(){
             //get messages and reload page
             axios.get('/get_user_messages').then((res)=>{
-                // console.log(res.data);
                 this.messages = res.data
             })
         },
