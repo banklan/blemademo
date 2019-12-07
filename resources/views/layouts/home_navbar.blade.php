@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="nav-item mr-3 {{ \Request::is('about_us') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('about_us') }}">Who we are</a>
+                    <a class="nav-link" href="{{ route('about_us') }}">About Us</a>
                 </li>
                 <li class="nav-item mr-3 {{ \Request::is('contact_us') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('contact_us') }}">Contact Us</a>

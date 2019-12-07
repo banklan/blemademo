@@ -113,7 +113,13 @@ nav.gen_nav{
     }
 }
 
-
+@media screen and (max-width: 768px){
+    nav#gen_nav{
+        .navbar-collapse{
+            padding-left: 1.5rem !important;
+        }
+    }
+}
 
 .navbar-dark .navbar-toggler{
     border-color: #f9f9f9 !important;
@@ -667,7 +673,9 @@ a.v-btn--fab{
                 margin: auto;
             }
             .socials{
-                flex: 0 1 100%
+                flex: 0 1 100%;
+                padding: 2.5rem 3rem;
+                margin: auto;
             }
         }
     }
