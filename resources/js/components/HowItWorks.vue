@@ -6,11 +6,11 @@
                     <v-card light raised elevation="14" min-height="350" class="mx-auto py-4 px-5 how_it_works">
                         <v-card-title class="justify-center headline font-weight-light"> How it Works</v-card-title>
                         <v-card-text class="card_text">
-                            <div class="title" style="color: #4a4a4a">
+                            <div class="title mb-2" style="color: #4a4a4a">
                                 For listed items:
                             </div>
                             <ol class="list1">
-                                <li class="list_item">Sign into app to make orders.</li>
+                                <li class="list_item">Sign into app to make orders. **You can add items to cart without signing into the app but to complete the order process, you must be signed in.</li>
                                 <li class="list_item">Select the category of the item you want to order, choose item, unit and add service for items that has additional services.</li>
                                 <li class="list_item">Add to cart</li>
                                 <li class="list_item">Click on the cart and proceed to checkout</li>

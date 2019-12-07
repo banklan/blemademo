@@ -7,8 +7,10 @@
                         <v-card-title class="justify-center headline font-weight-light"> Meet Blema Groceries</v-card-title>
                         <v-card-text>
                             <div class="subtitle-1" style="color: #4a4a4a">
-                                Blema Groceries is an online grocery store especially designed to meet your daily needs for groceries.
-                                <br/><br>
+                                Blema Groceries is an online grocery store especially designed to meet your daily needs for groceries. We also supply foodstuffs, soup recipes and ingredients, fruits and vegetables, beverages, etc.
+                                <br/><br/>
+                                Our kitchen services are designed to leverage on our expertise to provide convenient and affordable cooking services for your family needs. Our prepared meals give you that homely feel and is guaranteed to leave you craving for more.
+                                <br/><br/>
                                 We are intentional about taking the stress off your shoulders hence we have provided the option of having your groceries packaged under the most hygienic condition and delivered fresh to your doorstep.
                                 <br/><br/>
                                 Our main aim and objective is to make shopping easy, convenient, stress-free and timely.

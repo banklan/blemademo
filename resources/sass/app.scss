@@ -61,10 +61,30 @@ nav#welcome_nav{
         color: $sec-col !important;
     }
 }
-nav.gen_nav{
-    // background: $pry-col !important;
-    // height: 5rem !important;
 
+@media screen and (max-width: 960px){
+    nav#welcome_nav{
+        margin-top: 15px;
+
+        .navbar-nav{
+            padding: 15px;
+        }
+    }
+}
+@media screen and (max-width: 768px){
+    nav#welcome_nav{
+        .navbar-collapse{
+            background: $pry-col;
+            margin-top: 30px !important;
+
+            .navbar-nav .nav-item .nav-link:hover{
+                color: $sec-col !important;
+            }
+        }
+    }
+}
+
+nav.gen_nav{
     .navbar-brand{
         color: $sec-col !important;
         font-size: 28px;
@@ -118,7 +138,7 @@ h2{
 .welcome_banner{
     margin-top: -5rem;
     height: 37rem;
-    width: 100vw;
+    width: 100% important;
     background-image: linear-gradient(to bottom right, rgba(29, 91, 132, 0.59), rgba(25, 68, 97, 0.585)),url('images/background/banner2.jpg');
     background-size: cover;
     background-position: center center;
@@ -419,10 +439,10 @@ a.v-btn--fab{
     padding: 1rem;
 
     h2{
-        margin-bottom: 1rem;
+        margin-bottom: .75rem;
     }
     .how_wrap{
-        margin: 2rem;
+        margin: 1.7rem;
         line-height: 1.8 !important;
 
         ul{
@@ -435,20 +455,10 @@ a.v-btn--fab{
 
                 .fas{
                     color: $pry-col;
-                    margin-right: 1.5rem;
+                    margin-right: 1.3rem;
                 }
             }
         }
-    }
-}
-@media screen and(max-width: 900px){
-    .how{
-        padding: 0 1.5rem;
-
-        .how_wrap{
-            margin-left: -3rem;
-        }
-        // margin-left: -5rem !important;
     }
 }
 
@@ -541,7 +551,7 @@ a.v-btn--fab{
     background-position: center center;
     background-repeat: no-repeat;
     min-height: 42rem;
-    width: 100vw;
+    width: 100% important;
     padding: 1.5rem;
     filter: opacity(.77);
     z-index: -1;
@@ -553,7 +563,7 @@ a.v-btn--fab{
     }
     ul{
         list-style: none;
-        padding: 1rem 3rem;
+        padding: 1rem 2.5rem;
         line-height: 1.6;
 
         li{
