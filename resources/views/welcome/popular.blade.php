@@ -10,7 +10,7 @@
                 <p>We can help you prepare blended & steamed tomato pastes with pepper, onions and other ingredients. </p>
             </div>
             <div class="cta text-center">
-                <a href="{{ route('soup_recipes') }}" class="btn btn_cta">Order Now</a>
+                <a href="{{ route('soup_recipes') }}" class="btn btn_cta">Order</a>
             </div>
         </div>
         <div class="prod">
@@ -22,7 +22,7 @@
                 <p>Order for fresh, soup-ready, chopped vegetables, prepared in the most-hygienic conditions</p>
             </div>
             <div class="cta text-center">
-                <a href="{{ route('fruits_vegs') }}" class="btn btn_cta">Order Now</a>
+                <a href="{{ route('fruits_vegs') }}" class="btn btn_cta">Order</a>
             </div>
         </div>
         <div class="prod">
@@ -34,7 +34,7 @@
                 <p>Order for your chicken, turkey, cow & goat meats/assorted parts, fish, snails etc.</p>
             </div>
             <div class="cta text-center">
-                <a href="{{ route('proteins') }}" class="btn btn_cta">Order Now</a>
+                <a href="{{ route('proteins') }}" class="btn btn_cta">Order</a>
             </div>
         </div>
         <div class="prod">
@@ -46,7 +46,7 @@
                 <p>We deliver vegetable salad, fried rice and other ingredients, just how you want them</p>
             </div>
             <div class="cta text-center">
-                <a href="{{ route('herbs_spices') }}" class="btn btn_cta">Order Now</a>
+                <a href="{{ route('herbs_spices') }}" class="btn btn_cta">Order</a>
             </div>
         </div>
         <div class="prod">
@@ -55,10 +55,10 @@
             </div>
             <div class="details">
                 <p class="text-center">Poultry products</p>
-                <p>We supply poultry products for home consumption or for your events. We can also help you dress them as extra service.</p>
+                <p>We supply live and dressed poultry products for home consumption or for your events.</p>
             </div>
             <div class="cta text-center">
-                <a href="{{ route('proteins') }}" class="btn btn_cta">Order Now</a>
+                <a href="{{ route('proteins') }}" class="btn btn_cta">Order</a>
             </div>
         </div>
         <div class="prod">
@@ -70,7 +70,7 @@
                 <p>Order for your neatly packaged raw food items, soup recipes and ingredients, in bulk or for home use.</p>
             </div>
             <div class="cta text-center">
-                <a href="{{ route('soup_recipes') }}" class="btn btn_cta">Order Now</a>
+                <a href="{{ route('soup_recipes') }}" class="btn btn_cta">Order</a>
             </div>
         </div>
     </div>

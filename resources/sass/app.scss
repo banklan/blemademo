@@ -75,7 +75,7 @@ nav#welcome_nav{
     nav#welcome_nav{
         .navbar-collapse{
             background: $pry-col;
-            margin-top: 30px !important;
+            margin-top: 40px !important;
 
             .navbar-nav .nav-item .nav-link:hover{
                 color: $sec-col !important;
@@ -144,7 +144,7 @@ h2{
 .welcome_banner{
     margin-top: -5rem;
     height: 37rem;
-    width: 100% important;
+    width: 100vw important;
     background-image: linear-gradient(to bottom right, rgba(29, 91, 132, 0.59), rgba(25, 68, 97, 0.585)),url('images/background/banner2.jpg');
     background-size: cover;
     background-position: center center;
@@ -557,7 +557,7 @@ a.v-btn--fab{
     background-position: center center;
     background-repeat: no-repeat;
     min-height: 42rem;
-    width: 100% important;
+    width: 100vw important;
     padding: 1.5rem;
     filter: opacity(.77);
     z-index: -1;
@@ -601,7 +601,6 @@ a.v-btn--fab{
         width: 100%;
         display: flex;
         justify-content: space-between;
-        // align-items: center;
         flex-wrap: wrap;
         color: #fff;
         padding: 1.5rem 2rem;
@@ -674,7 +673,7 @@ a.v-btn--fab{
             }
             .socials{
                 flex: 0 1 100%;
-                padding: 2.5rem 3rem;
+                padding: 1rem 1.5rem;
                 margin: auto;
             }
         }
