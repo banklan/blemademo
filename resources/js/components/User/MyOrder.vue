@@ -18,7 +18,7 @@ o<template>
                     <v-layout row wrap justify-center>
                         <v-flex xs12 md5>
                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="7" :size="70"></v-progress-circular>
-                            <v-card v-if="!loading" light min-height="300" elevation="20" class="justify-center ma-4">
+                            <v-card v-if="!loading" light min-height="300" elevation="20" class="justify-center mt-4 ml-2 mb-4">
                                 <v-card-title class="justify-center">
                                     <div class="subtitle-1">
                                         Order Summary
