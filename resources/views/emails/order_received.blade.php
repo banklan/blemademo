@@ -23,12 +23,12 @@
                     <tr>
                         <td>{{ $item->product->name }}</td>
                         <td>{{ $item->units }}</td>
-                        <td>&#8358;{{ money_format($item->product->price / 100, 2) }}</td>
+                        <td>&#8358;{{ number_format(intval($item->product->price / 100), 2, ',', '.') }}</td>
                     </tr>
                 @endforeach
                 <tr>
                     <td colspan="2"><strong>Delivery Charges</strong></td>
-                    <td><strong>&#8358;{{ money_format($charges->amount / 100, 2) }}</strong></td>
+                    <td><strong>&#8358;{{ number_format(intval($charges->amount / 100), 2, ',', '.') }}</strong></td>
                 </tr>
                 <tr>
                     <td colspan="2"><strong>Total</strong></td>
