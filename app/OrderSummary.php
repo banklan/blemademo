@@ -11,7 +11,7 @@ class OrderSummary extends Model
 
     protected $table = 'order_summaries';
 
-    protected $appends = ['order_date', 'status', 'date', 'time', 'payment_status'];
+    protected $appends = ['order_date', 'status', 'date', 'time', 'payment_status', 'short_date'];
 
     protected $with = ['user'];
 
@@ -42,6 +42,11 @@ class OrderSummary extends Model
         $date = Carbon::parse($this->created_at)->toFormattedDateString();
         // $date = Carbon::parse($this->created_at)->toDayDateTimeString();
         return $date;
+    }
+
+    public function getShortDateAttribute($value)
+    {
+        $date = Carbon::createFromFormat('d/m/Y', $this->created_at);
     }
 
     public function getTimeAttribute($value)

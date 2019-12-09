@@ -21,18 +21,18 @@
                                         <tr>
                                             <th>S/N</th>
                                             <th>Date</th>
-                                            <th>Order No</th>
+                                            <th>Order #</th>
                                             <th>No of Items</th>
-                                            <th>Value</th>
+                                            <th>Value(&#8358;)</th>
                                             <th>View</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for="(order, i) in Orders" :key="i">
                                             <td>{{ i + 1 }}</td>
-                                            <td width="30%">{{ order.date }}</td>
+                                            <td width="35%">{{ order.short_date }}</td>
                                             <td width="30%">{{ order.order_id }}</td>
-                                            <td width="15%">{{ order.item_count }}</td>
+                                            <td width="10%">{{ order.item_count }}</td>
                                             <td width="15%">{{ order.value | price }}</td>
                                             <td><v-btn text color="primary" :to="{name: 'MyOrder', params: {id: order.id, orderId: order.order_id}}"><v-icon>visibility</v-icon></v-btn></td>
                                         </tr>
@@ -82,6 +82,7 @@ export default {
         white-space: normal;
         border-radius: 6px;
         margin: 15px !important;
+        margin-left: 20px !important;
 
         table{
             padding: 0 15px !important;
