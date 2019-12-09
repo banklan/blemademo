@@ -46,7 +46,7 @@ class OrderSummary extends Model
 
     public function getShortDateAttribute($value)
     {
-        $date = Carbon::createFromFormat('d/m/Y', $this->created_at);
+        $date = Carbon::parse($this->created_at)->format('d/m/Y');
 
         return $date;
     }
