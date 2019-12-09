@@ -17,14 +17,14 @@
                 <li><a href="">Login</a></li>
                 <li><a href="">Sign Up</a></li>
                 <li><a href=" {{ route('contact_us') }}">Contact US</a></li>
-                <li><i class="fas fa-phone"></i>&nbsp; 08099342492</li>
-                <li><i class="fas fa-envelope"></i>&nbsp; info@blema.com</li>
+                <li><i class="fas fa-phone"></i>&nbsp; 080</li>
+                <li><i class="fas fa-envelope"></i>&nbsp; info@blemagroceries.com</li>
             </ul>
         </div>
         <div class="socials">
             <a href=""><i class="fab fa-facebook-square"></i></a>  <a href=""><i class="fab fa-twitter-square"></i></a>
             <a href=""><i class="fab fa-instagram"></i></a>
-            <p>&copy; <?php echo date('Y'); ?> &nbsp; blema.com &nbsp; All rights reserved
+            <p>&copy; <?php echo date('Y'); ?> &nbsp; blemagroceries.com &nbsp; All rights reserved
         </div>
     </div>
     <div class="footer_base">
