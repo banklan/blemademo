@@ -100,7 +100,7 @@
                             </v-card-text>
                             <v-card-actions>
                                 <div class="flex-grow-1"></div>
-                                <v-btn dark color="#ff5e5a" @click="confirmAdd = false">
+                                <v-btn dark color="primary" @click="confirmAdd = false">
                                     Continue Shopping
                                 </v-btn>
                                 <v-btn href="/my_cart" class='btn btn_submit'>Buy Now</v-btn>
