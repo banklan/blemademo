@@ -68,7 +68,7 @@ o<template>
                         </v-flex>
                         <v-flex xs12 md6>
                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="7" :size="70"></v-progress-circular>
-                            <v-card v-else light min-height="300" elevation="20" class="justify-center ma-4 order_table">
+                            <v-card v-else light min-height="300" elevation="20" class="justify-center ml-4" width="100%">
                                 <v-card-title class="justify-center">
                                     <div class="subtitle-1">Order Items</div>
                                 </v-card-title>
@@ -151,19 +151,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .v-data-table{
-        margin-top: -15px !important;
-    }
-    @media screen and(max-width: 960px){
-       .v-card.order_table{
-            width: 100vw !important;
+    // .v-data-table{
+    //     margin-top: -15px !important;
+    // }
+    // @media screen and(max-width: 960px){
+    //    .v-card.order_table{
+    //         width: 100vw !important;
 
-            .v-simple-table{
-                overflow-x: scroll !important;
-                width: 100%;
-            }
-        }
-    }
+    //         .v-simple-table{
+    //             overflow-x: scroll !important;
+    //             width: 100%;
+    //         }
+    //     }
+    // }
     .table_card{
         min-height: 30rem;
         background: #fff;
