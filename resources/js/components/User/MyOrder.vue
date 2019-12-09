@@ -11,14 +11,14 @@ o<template>
                             <v-btn color="#ff3c38" dark raised rounded ripple @click.prevent="$router.go(-1)"><v-icon left>arrow_left</v-icon>Back</v-btn>
                         </v-col>
                         <v-col cols="8" md="9">
-                            <div class="title">My Order - {{ orderId }}</div>
+                            <div class="subtitle-1">My Order - #{{ orderId }}</div>
                         </v-col>
                     </v-row>
                     <v-divider></v-divider>
                     <v-layout row wrap justify-center>
                         <v-flex xs12 md5>
                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="7" :size="70"></v-progress-circular>
-                            <v-card v-if="!loading" light min-height="300" elevation="20" class="justify-center mt-4 ml-2 mb-4">
+                            <v-card v-if="!loading" light min-height="300" elevation="20" class="justify-center mt-3 ml-2 mb-4">
                                 <v-card-title class="justify-center">
                                     <div class="subtitle-1">
                                         Order Summary
@@ -74,28 +74,30 @@ o<template>
                                 </v-card-title>
                                 <v-divider></v-divider>
                                 <v-card-text>
-                                    <v-simple-table light fixed-header min-height="250" table-bordered>
-                                        <thead>
-                                            <tr>
-                                                <th>S/N</th>
-                                                <th>Product/Service</th>
-                                                <th>Price(&#8358;)</th>
-                                                <th>Units</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr v-for="(item, i) in orders" :key="i">
-                                                <td>{{ i + 1 }}</td>
-                                                <td v-if="item.product_id" width="25%">{{ item.product && item.product.name }}</td>
-                                                <td v-if="!item.product_id" width="22%">{{ item.service && item.service.name }}</td>
-                                                <td v-if="item.product_id" width="22%">{{ item.product && item.product.price | price }}</td>
-                                                <td v-if="!item.product_id">{{ item.service && item.service.price | price }}</td>
-                                                <td>{{ item.units }}</td>
-                                                <td width="22%">{{  item.cost | price }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </v-simple-table>
+                                    <div class="table_card">
+                                        <table class="table table-responsive table-hover table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th>S/N</th>
+                                                    <th>Product/Service</th>
+                                                    <th>Price(&#8358;)</th>
+                                                    <th>Units</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="(item, i) in orders" :key="i">
+                                                    <td>{{ i + 1 }}</td>
+                                                    <td v-if="item.product_id" width="25%">{{ item.product && item.product.name }}</td>
+                                                    <td v-if="!item.product_id" width="22%">{{ item.service && item.service.name }}</td>
+                                                    <td v-if="item.product_id" width="22%">{{ item.product && item.product.price | price }}</td>
+                                                    <td v-if="!item.product_id">{{ item.service && item.service.price | price }}</td>
+                                                    <td>{{ item.units }}</td>
+                                                    <td width="22%">{{  item.cost | price }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </v-card-text>
                             </v-card>
                         </v-flex>
@@ -162,6 +164,40 @@ export default {
             }
         }
     }
+    .table_card{
+        min-height: 30rem;
+        background: #fff;
+        color: rgba(0,0,0,.75);
+        border-color: #fff;
+        justify-content: center !important;
+        box-shadow: 0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12)!important;
+        max-width: 100%;
+        outline: none;
+        overflow-wrap: break-word;
+        text-decoration: none;
+        transition-property: box-shadow,opacity;
+        white-space: normal;
+        border-radius: 6px;
+        margin: 15px !important;
+        margin-left: 20px !important;
 
+        table{
+            padding: 0 15px !important;
+            margin: 0 auto !important;
+            width: 100%;
+
+            td{
+                vertical-align: middle;
+            }
+        }
+    }
+
+    @media screen and(max-width: 960px) {
+        .table_card{
+            min-width: 100vw !important;
+            margin: 0;
+            overflow-x: scroll;
+        }
+    }
 </style>
 
