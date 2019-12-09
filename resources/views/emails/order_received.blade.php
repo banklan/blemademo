@@ -6,7 +6,7 @@
     <p>Once our bearers are in your neighbourhood, we will call to inform you.</p>
     <p>You can track your order when you login into your account on <a href="#">www.blemagroceries.com</a>, on your dashboard, go to "My Orders", then click on the Order to track.</p>
     <p>The item(s) you ordered for are as listed below:</p>
-    <table>
+    <table class="table table-responsive table-bordered table-condensed">
         <thead>
             <tr>
                 <th>Items</th>
@@ -16,19 +16,19 @@
         <thead>
         <tbody>
             @foreach($items as $item)
-            <tr>
-                <td>{{ $item->product->name }}</td>
-                <td>{{ $item->units }}</td>
-                <td>{{ $item->units }} * money_format({{ $item->product->price / 100 }}, 2)</td>
-            </tr>
+                <tr>
+                    <td>{{ $item->product->name }}</td>
+                    <td>{{ $item->units }}</td>
+                    <td>&#8358;{{ money_format($item->product->price / 100, 2) }}</td>
+                </tr>
             @endforeach
             <tr>
                 <td colspan="2"><strong>Delivery Charges</strong></td>
-                <td><strong>(&#8358;)money_format({{ $charges->amount / 100 }}, 2)</strong></td>
+                <td><strong>&#8358;{{ money_format($charges->amount / 100, 2) }}</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Total</strong></td>
-                <td><strong>(&#8358;)money_format({{ $order->value / 100 }}, 2)</strong></td>
+                <td><strong>&#8358;{{ money_format($order->value / 100, 2) }}</strong></td>
             </tr>
         </tbody>
     </table><br/>
