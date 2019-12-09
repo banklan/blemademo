@@ -118,9 +118,12 @@ class OrderController extends Controller
     public function sendOrderReceivedEmails(Request $request, $id)
     {
         $order = OrderSummary::findOrFail($id);
+        $orderId = $request->order;
+        $charges = Charge::where('order_id', $orderId)->first();
+        $items = Order::where('order_id', $orderId)->get();
         $user = Auth::user();
-        Mail::to($user->email)->send(new OrderReceived($user, $order));
-        Mail::to('blemadeliveries@gmail.com')->send(new OrderReceived($user, $order));
+        Mail::to($user->email)->send(new OrderReceived($user, $order, $items, $charges));
+        Mail::to('blemadeliveries@gmail.com')->send(new OrderReceived($user, $order, $items, $charges));
     }
 
     public function getUserPendingOrders()

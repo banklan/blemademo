@@ -21,7 +21,7 @@
                                     <tbody>
                                         <tr v-for="(item, index) in items" :key="index">
                                             <td>{{ item.name }}</td>
-                                            <td>{{ item.units }} X {{ item.price | price }}</td>
+                                            <td>{{ item.units }} </td>
                                             <td>{{ item.cost | price }}</td>
                                             <td><v-btn text @click.prevent="delItem(index)"><v-icon small color="#ff3c38">delete_outline</v-icon></v-btn></td>
                                         </tr>
@@ -290,7 +290,7 @@ export default {
 
                     // send mail here
                     axios.post(`/send_orderreceived_emails/${res.data.id}`, {
-                        order: res.data
+                        order: res.data.order_id
                     }).then((res) => {
                         console.log(res.data);
                     })
@@ -355,6 +355,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @media screen and (max-width: 760px){
+        .cart_card{
+            table tr th{
+                font-size: 12px;
+                font-weight: bold;
+            }
+            table tr td{
+                font-size: 10px;
+            }
+        }
+    }
     @media screen and (min-width: 600px){
         .cart_card{
             margin-left: 2rem;
