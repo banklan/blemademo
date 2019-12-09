@@ -3,7 +3,7 @@
         <v-content>
             <v-container grid-list-sm>
                 <v-layout row wrap class="mb-4">
-                    <v-flex xs12 sm6 class="mt-4 cart_card">
+                    <v-flex xs12 md6 class="mt-4 cart_card">
                         <v-card raised elevation="12" light ripple hover min-height="100" v-if="items.length > 0">
                             <v-card-title class="justify-center">
                                 <div class="body-3">My Cart</div>
@@ -59,12 +59,12 @@
                              </v-card-title>
                              <v-card-text>
                                  <div class="subtitle-1">
-                                     Your cart is empty. You have not added any items to your cart.
+                                     Your cart is empty. You have not added any item to your cart.
                                  </div>
                              </v-card-text>
                          </v-card>
                     </v-flex>
-                    <v-flex xs12 sm5 class="mt-4 msg_card" v-if="grandTotal">
+                    <v-flex xs12 md5 class="mt-4 msg_card" v-if="grandTotal">
                         <v-card raised elevation="12" light ripple hover min-height="150" class="mb-5">
                             <v-card-title class="justify-center">
                                 <div class="subtitle-1">Delivery Address / Contact</div>
@@ -97,7 +97,7 @@
                             </v-card-title>
                             <v-card-actions class="justify-center my-3">
                                 <v-btn v-if="auth" :loading="loading2" class="btn btn_submit" @click.prevent="openPodDialog = true" style="text-decoration:none">Pay on Delivery</v-btn>
-                                <v-btn v-if="auth" :loading="loading" class="btn btn_submit" @click="goToCheckOut" style="text-decoration:none">Checkout</v-btn>
+                                <v-btn v-if="auth" :loading="loading" class="btn btn_submit" @click="goToCheckOut" style="text-decoration:none">Pay Online Now</v-btn>
                                 <!-- <v-btn v-if="auth" class="btn btn_submit" to="/checkout_confirm">Checkout</v-btn> -->
                                 <a href="/login" v-if="!auth" class="btn btn_submit">Login to complete order</a>
                             </v-card-actions>
@@ -358,11 +358,11 @@ export default {
     @media screen and (max-width: 760px){
         .cart_card{
             table tr th{
-                font-size: 12px;
+                font-size: 14px;
                 font-weight: bold;
             }
             table tr td{
-                font-size: 10px;
+                font-size: 12px;
             }
         }
     }

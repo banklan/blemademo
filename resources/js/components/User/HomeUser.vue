@@ -69,10 +69,10 @@
                                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="7" :size="50"></v-progress-circular>
                                             <v-card-title class="justify-center">
                                                 <div v-if="pendings.length > 0" class="subtitle-1">
-                                                    You have {{ pendings.length }} pending order
+                                                    You have {{ pendings.length | pluralize('order')}} awaiting delivery.
                                                 </div>
                                                 <div v-else class="subtitle-1">
-                                                    You have no pending order(s)
+                                                    You currently have no order(s) awaiting delivery.
                                                 </div>
                                             </v-card-title>
                                             <v-card-text v-if="pendings.length > 0">

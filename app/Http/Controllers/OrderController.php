@@ -119,7 +119,7 @@ class OrderController extends Controller
     {
         $order = OrderSummary::findOrFail($id);
         $orderId = $request->order;
-        $charges = Charge::where('order_id', $orderId)->first();
+        $charges = Charges::where('order_id', $orderId)->first();
         $items = Order::where('order_id', $orderId)->get();
         $user = Auth::user();
         Mail::to($user->email)->send(new OrderReceived($user, $order, $items, $charges));

@@ -15,21 +15,23 @@
             </tr>
         <thead>
         <tbody>
-            <tr v-for="item in items">
-                <td>{{ item.product.name }}</td>
-                <td>{{ item.units }}</td>
-                <td>{{ item.units }} * money_format({{ item.product.price / 100 }}, 2)</td>
+            @foreach($items as $item)
+            <tr>
+                <td>{{ $item->product->name }}</td>
+                <td>{{ $item->units }}</td>
+                <td>{{ $item->units }} * money_format({{ $item->product->price / 100 }}, 2)</td>
             </tr>
+            @endforeach
             <tr>
                 <td colspan="2"><strong>Delivery Charges</strong></td>
-                <td><strong>(&#8358;)money_format({{ charges / 100 }}, 2)</strong></td>
+                <td><strong>(&#8358;)money_format({{ $charges->amount / 100 }}, 2)</strong></td>
             </tr>
             <tr>
                 <td colspan="2"><strong>Total</strong></td>
-                <td><strong>(&#8358;)money_format({{ order / 100 }}, 2)</strong></td>
+                <td><strong>(&#8358;)money_format({{ $order->value / 100 }}, 2)</strong></td>
             </tr>
         </tbody>
-    </table>
+    </table><br/>
     <p>Thank you for making us a part of your life.</p>
     <p>Sincerely,</p>
     <p><strong>Blessing</strong></p>

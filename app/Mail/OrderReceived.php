@@ -3,7 +3,7 @@
 namespace App\Mail;
 
 use App\User;
-use App\Order;
+use App\Charges;
 use App\OrderSummary;
 use App\SpecialOrder;
 use Illuminate\Bus\Queueable;
@@ -19,13 +19,12 @@ class OrderReceived extends Mailable
     public $order;
     public $items;
     public $charges;
-
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, OrderSummary $order, Order $items, Charges $charges)
+    public function __construct(User $user, OrderSummary $order, \Illuminate\Database\Eloquent\Collection $items, Charges $charges)
     {
         $this->user = $user;
         $this->order = $order;
@@ -40,7 +39,7 @@ class OrderReceived extends Mailable
      */
     public function build()
     {
-        return $this->from('Blessing@blemadeliveries.com')
+        return $this->from('Blessing@blema.com')
                     -> view('emails.order_received');
     }
 }
