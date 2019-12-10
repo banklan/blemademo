@@ -8,7 +8,7 @@ o<template>
                 <v-container grid-list-xs>
                     <v-row>
                         <v-col cols="4" md="3">
-                            <v-btn class="ml-2" color="#ff3c38" dark raised rounded ripple @click.prevent="$router.go(-1)"><v-icon left>arrow_left</v-icon>Back</v-btn>
+                            <v-btn class="ml-4" color="#ff3c38" dark raised rounded ripple @click.prevent="$router.go(-1)"><v-icon left>arrow_left</v-icon>Back</v-btn>
                         </v-col>
                         <v-col cols="8" md="9">
                             <div class="subtitle-1">My Order - #{{ orderId }}</div>
@@ -74,7 +74,7 @@ o<template>
                                 </v-card-title> -->
                                 <v-divider></v-divider>
                                 <!-- <v-card-text> -->
-                                    <div class="table_card" v-else>
+                                    <div class="items_card" v-if="!loading" >
                                         <div class="subtitle-1 my-2 justify-center">Order Items</div>
                                         <table class="table table-responsive table-hover table-condensed">
                                             <thead>
@@ -179,8 +179,8 @@ export default {
         transition-property: box-shadow,opacity;
         white-space: normal;
         border-radius: 6px;
-        margin: 15px !important;
-        margin-left: 20px !important;
+        margin: 10px !important;
+        // margin-left: 20px !important;
 
         table{
             padding: 0 15px !important;
@@ -197,6 +197,28 @@ export default {
         .table_card{
             min-width: 100vw !important;
             margin: 0;
+            overflow-x: scroll;
+        }
+    }
+    .items_card{
+        background: #fff;
+        min-height: 30rem;
+        color: rgba(0,0,0,.75);
+        border-color: #fff;
+        justify-content: center !important;
+        box-shadow: 0 10px 13px -6px rgba(0,0,0,.2),0 20px 31px 3px rgba(0,0,0,.14),0 8px 38px 7px rgba(0,0,0,.12)!important;
+        max-width: 100%;
+        outline: none;
+        overflow-wrap: break-word;
+        text-decoration: none;
+        transition-property: box-shadow,opacity;
+        white-space: normal;
+        border-radius: 6px;
+        margin: 10px !important;
+
+        table{
+            padding: 10px;
+            min-width: 100vw !important;
             overflow-x: scroll;
         }
     }
