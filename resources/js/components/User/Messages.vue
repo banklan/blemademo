@@ -5,7 +5,7 @@
             <v-col cols="10" offset="1">
                 <v-row>
                     <v-col cols="10" offset="1">
-                        <div class="title ml-4 page_title">My Messages</div>
+                        <div class="title ml-4 pl-3 page_title">My Messages</div>
                     </v-col>
                 </v-row>
                 <v-divider></v-divider>
