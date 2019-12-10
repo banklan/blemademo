@@ -8,7 +8,7 @@ o<template>
                 <v-container grid-list-xs>
                     <v-row>
                         <v-col cols="4" md="3">
-                            <v-btn color="#ff3c38" dark raised rounded ripple @click.prevent="$router.go(-1)"><v-icon left>arrow_left</v-icon>Back</v-btn>
+                            <v-btn class="ml-2" color="#ff3c38" dark raised rounded ripple @click.prevent="$router.go(-1)"><v-icon left>arrow_left</v-icon>Back</v-btn>
                         </v-col>
                         <v-col cols="8" md="9">
                             <div class="subtitle-1">My Order - #{{ orderId }}</div>
@@ -18,18 +18,15 @@ o<template>
                     <v-layout row wrap justify-center>
                         <v-flex xs12 md5>
                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="7" :size="70"></v-progress-circular>
-                            <div v-if="!loading" class="table_card">
-                                <div class="subtitle-1 justify-center">Order Summary</div>
-                            </div>
-                            <!-- <v-card v-if="!loading" light min-height="300" elevation="20" class="justify-center mt-3 ml-2 mb-4"> -->
-                                <!-- <v-card-title class="justify-center">
+                            <v-card v-if="!loading" light min-height="300" min-width="600" elevation="20" class="justify-center mt-3 ml-2 mb-4">
+                                <v-card-title class="justify-center">
                                     <div class="subtitle-1">
                                         Order Summary
                                     </div>
-                                </v-card-title> -->
+                                </v-card-title>
                                 <v-divider></v-divider>
-                                <div class="order_summary_table">
-                                    <table class="table table-responsive table-hover table-condensed">
+                                <v-card-text>
+                                    <v-simple-table light>
                                         <tr>
                                             <th>Order ID</th>
                                             <td class="primary--text darken-5">{{ order.order_id }}</td>
@@ -62,12 +59,12 @@ o<template>
                                             <th>Payment Status</th>
                                             <td>{{ order.payment_status }}</td>
                                         </tr>
-                                    </table>
-                                </div>
-                                <div class="pa-5">
+                                    </v-simple-table>
+                                </v-card-text>
+                                <v-card-actions class="pa-5">
                                     <v-btn color="#ff3c38" dark raised rounded ripple @click.prevent="$router.go(-1)"><v-icon left>arrow_left</v-icon>Back</v-btn>
-                                </div>
-                            </div>
+                                </v-card-actions>
+                            </v-card>
                         </v-flex>
                         <v-flex xs12 md6>
                             <v-progress-circular v-if="loading" indeterminate color="orange" :width="7" :size="70"></v-progress-circular>
